@@ -1,0 +1,76 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "COMP3023-Assignment1",
+					"jsonFile" : "directory-COMP3023-Assignment1-Debug-261d3a8c1b9ae6cbcb1c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "COMP3023-Assignment1",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "COMP3023-Assignment1",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "COMP3023-Assignment1::@4e0fedb279daba676e8a",
+					"jsonFile" : "target-COMP3023-Assignment1-Debug-b465264581b6314739fb.json",
+					"name" : "COMP3023-Assignment1",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1/out/build/x64-debug",
+		"source" : "C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
