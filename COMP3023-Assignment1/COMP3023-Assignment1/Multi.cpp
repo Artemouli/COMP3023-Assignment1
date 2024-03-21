@@ -4,4 +4,4 @@ Multi::Multi()
 {
 }
 
-Multi::Multi() {}
+Multi::~Multi() {}
