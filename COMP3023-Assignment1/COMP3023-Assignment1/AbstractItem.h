@@ -11,10 +11,21 @@ class AbstractItem {
 public:
 	//constructor
 	AbstractItem(const std::string& newName, const int newPrice) : name(newName), price(newPrice) {}
-	int getPrice() const = 0;
-	bool getBought() const = 0;
-	void setBought() const;
-	virtual void ApplyMulti(const std::multimap <std::string, float>* bought_items) const;
+	
+	virtual std::string getName() const {
+		return name;
+	};
+
+	virtual int getPrice() const {
+		return price;
+	};
+	virtual bool getBought() const {
+		return bought;
+	};
+	virtual void isBought() {
+		bought = true;
+	};
+	virtual void ApplyMulti(const std::multimap <std::string, float>* bought_items);
 
 private:
 	std::string name;
