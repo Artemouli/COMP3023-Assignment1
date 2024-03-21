@@ -1,8 +1,6 @@
-
 #include <iostream>
 #include <map>
 
-#pragma once
 #ifndef ABSTRACTITEM
 #define ABSTRACTITEM
 
@@ -11,12 +9,17 @@
 //interface for the items
 class AbstractItem {
 public:
-	AbstractItem();
-	virtual ~AbstractItem();
-	virtual int getPrice() const = 0;
-	virtual bool getBought() const = 0;
-	virtual void setBought() const = 0;
-	virtual void ApplyMulti(const std::multimap<std::string, float>* bought_items) const = 0;
+	//constructor
+	AbstractItem(const std::string& newName, const int newPrice) : name(newName), price(newPrice) {}
+	int getPrice() const = 0;
+	bool getBought() const = 0;
+	void setBought() const;
+	virtual void ApplyMulti(const std::multimap <std::string, float>* bought_items) const;
+
+private:
+	std::string name;
+	int price;
+	bool bought = false;
 };
 
 #endif //ABSTRACTITEM

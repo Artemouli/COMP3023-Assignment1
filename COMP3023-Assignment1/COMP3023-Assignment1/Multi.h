@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef MULTI
 #define MULTI
 
