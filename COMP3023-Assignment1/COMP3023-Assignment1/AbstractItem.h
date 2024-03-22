@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include "Multi.h"
 
 #ifndef ABSTRACTITEM
 #define ABSTRACTITEM
@@ -36,7 +37,14 @@ public:
 	};*/
 
 	virtual Multi* getMulti(std::string parameter_name) const {
-		//TODO
+		for (int i = 0; i < system_multiplier.size(); i++)
+		{
+			if (*system_multiplier[i]->GetParameter() == parameter_name)
+			{
+				//return the pointer that points to the specific Multi
+				return system_multiplier[i];
+			}
+		}
 	}
 
 	//adds the multiplier to the bought_items multimap
