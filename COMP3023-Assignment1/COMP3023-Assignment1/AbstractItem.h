@@ -11,6 +11,7 @@
 class AbstractItem {
 public:
 	//constructor
+	//for each item cpp file, the item will initialise the Multi's it needs inside its constructor
 	AbstractItem(std::string newName, int newPrice) : name(newName), price(newPrice) {}
 	
 	virtual std::string getName() const {
@@ -23,15 +24,22 @@ public:
 	virtual bool getBought() const {
 		return bought;
 	};
+	//sets the item to bought
 	virtual void isBought() {
 		bought = true;
 	};
-	virtual void addMulti(Multi* multi) const {
-		system_multiplier.push_back(multi);
-	};
 
-	//this is now in Multi
-	//virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items) const;
+	//THIS IS NO LONGER NEEDED
+	//this is called by the initaliser to add the system multipliers to the item
+	/*virtual void addMulti(Multi* multi) const = {
+		system_multiplier.push_back(multi);
+	};*/
+
+	//adds the multiplier to the bought_items multimap
+	virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items) const
+	{
+		
+	};
 
 private:
 	std::string name;
