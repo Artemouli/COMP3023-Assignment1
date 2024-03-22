@@ -35,11 +35,16 @@ public:
 		system_multiplier.push_back(multi);
 	};*/
 
+	virtual Multi* getMulti(std::string parameter_name) const {
+		//TODO
+	}
+
 	//adds the multiplier to the bought_items multimap
-	virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items) const
+	//this should be in the Item Manager
+	/*virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items) const
 	{
 		
-	};
+	}; */
 
 private:
 	std::string name;
