@@ -8,7 +8,8 @@ AbstractItem::AbstractItem(std::string newName, const int newPrice) : //construc
 
 AbstractItem::~AbstractItem() {}
 
-void AbstractItem::ApplyMulti(std::multimap <std::string, float>& rBought_items) const {}
+
+//void AbstractItem::ApplyMulti(std::multimap <std::string, float>& rBought_items) const {}
 /* {
 	rBought_items.insert({ system_multiplier, })
 };*/

@@ -6,11 +6,11 @@
 //Interface for the simulation parameter multipliers
 
 //affected parameters:
-//value
-//explorer
-//operator
-//save
-//loot_recov
+//scrap value multiplier: value
+//explorer survival chance multiplier: explorer
+//operator survival chance multiplier: operator
+//explorer save chance: save
+//loot recovery multiplier: loot_recov
 
 class Multi {
 public:
