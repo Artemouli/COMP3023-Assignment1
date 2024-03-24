@@ -4,19 +4,24 @@
 #include "util.h"
 
 //the initaliser function that calls all the other functions
-void initaliseNewGame()
+
+Game::Game();
+
+Game::~Game() {};
+
+Game::initaliseNewGame()
 {
 
 }
 
 //defines the items and adds them to the hashmap
-void defineItems()
+Game::defineItems()
 {
 
 }
 
 //defines the moon and adds them to the hashmap
-void defineMoons()
+Game::defineMoons()
 {
 
 }
