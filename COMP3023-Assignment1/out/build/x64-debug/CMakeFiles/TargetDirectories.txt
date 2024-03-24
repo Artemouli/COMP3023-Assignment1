@@ -1,5 +1,0 @@
-C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1/out/build/x64-debug/CMakeFiles/edit_cache.dir
-C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1/out/build/x64-debug/COMP3023-Assignment1/CMakeFiles/COMP3023-Assignment1.dir
-C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1/out/build/x64-debug/COMP3023-Assignment1/CMakeFiles/edit_cache.dir
-C:/Users/artem/OneDrive - University of South Australia/Uni/Year 3/Semester 1/Design Patterns/Assignment 1/Assignment/COMP3023-Assignment1/out/build/x64-debug/COMP3023-Assignment1/CMakeFiles/rebuild_cache.dir
