@@ -13,6 +13,15 @@ public:
 	//registers the item by adding it to the map
 	void RegisterItem(AbstractItem* new_item);
 
+	void Inventory();
+
+	void Store();
+
+	void Buy(std::string buy_item_name);
+
+	//apply multi
+
+	//add multi
 
 private: 
 	//keeps track of the items

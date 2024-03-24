@@ -6,6 +6,7 @@
 class Flashlight : public AbstractItem
 {
 public:
-	FlashLight(std::string newName = "Flashlight", int newPrice = 60); //default arguments
+	Flashlight(std::string newName = "Flashlight", int newPrice = 60); //default arguments
 };
 
+#endif

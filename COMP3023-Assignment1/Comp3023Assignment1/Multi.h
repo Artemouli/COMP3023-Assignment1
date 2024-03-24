@@ -14,14 +14,15 @@
 
 class Multi {
 public:
-	Multi(std::string inputParameter, int newMultiplier) : affected_parameter(inputParameter), multiplier(newMultiplier) {};
+	Multi(std::string inputParameter, float newMultiplier) : affected_parameter(inputParameter), multiplier(newMultiplier) {};
+	
 	virtual ~Multi();
 
-	virtual std::string GetParameter() const {
+	virtual std::string getParameter() const {
 		return affected_parameter;
 	};
 
-	virtual float GetMultiplier() const {
+	virtual float getMultiplier() const {
 		return multiplier;
 	};
 	//virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items ) const;

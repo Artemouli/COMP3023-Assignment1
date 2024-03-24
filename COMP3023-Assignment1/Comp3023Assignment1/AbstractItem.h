@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <memory>
 #include <vector>
 #include "Multi.h"
 
@@ -25,8 +26,9 @@ public:
 	virtual bool getBought() const {
 		return bought;
 	};
-	//sets the item to bought
-	virtual void isBought() {
+	//sets the item to bought while also deleting the allocated memory
+	virtual void isBought()  
+	{ 
 		bought = true;
 	};
 
@@ -36,13 +38,14 @@ public:
 		system_multiplier.push_back(multi);
 	};*/
 
-	virtual Multi* getMulti(std::string parameter_name) const {
+	//gets the multiplier float
+	virtual float getMulti(std::string parameter_name) {
 		for (int i = 0; i < system_multiplier.size(); i++)
 		{
-			if (*system_multiplier[i]->GetParameter() == parameter_name)
+			if (system_multiplier[i]->getParameter().compare(parameter_name))
 			{
 				//return the pointer that points to the specific Multi
-				return system_multiplier[i];
+				return system_multiplier[i]->getMultiplier();
 			}
 		}
 	}
@@ -58,7 +61,11 @@ private:
 	std::string name;
 	int price;
 	bool bought = false;
-	std::vector <Multi*> system_multiplier;
+
+//system_multiplier is made protected so that the objects that inherit AbstractItem can use it
+protected:
+	//std::vector <Multi*> system_multiplier;
+	std::vector <std::unique_ptr<Multi>> system_multiplier;
 };
 
 #endif //ABSTRACTITEM
