@@ -26,6 +26,7 @@ public:
 private: 
 	//keeps track of the items
 	std::map<std::string, AbstractItem*> items;
+
 	//system_multiplers < multiplier name, multipler>
 	//e.g. system_multipliers < Scrap Value Multiplier, 1.10 >
 	std::unordered_multimap<std::string, float> system_multipliers;
