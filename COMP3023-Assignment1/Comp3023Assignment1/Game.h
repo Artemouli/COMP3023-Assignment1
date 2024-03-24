@@ -4,6 +4,8 @@
 #include "ItemManager.h"
 #include "util.h"
 
+#include <vector>
+
 class Game 
 {
 public:
@@ -30,6 +32,8 @@ private:
 	int current_cargo_value;
 	int quota;
 	
+	//keeps track of the memory of objects that are going to be used in the game
+	std::vector <AbstractItem*> useableItems;
 	//landed moon variable
 
 	//simulation parameters

@@ -19,6 +19,8 @@ public:
 
 	void Buy(std::string buy_item_name);
 
+	//is called by the end game function to free up memory
+	void deleteItems();
 	//apply multi
 
 	//add multi
