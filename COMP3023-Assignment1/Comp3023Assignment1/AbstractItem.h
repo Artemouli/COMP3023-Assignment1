@@ -4,8 +4,8 @@
 #include <vector>
 #include "Multi.h"
 
-#ifndef ABSTRACTITEM
-#define ABSTRACTITEM
+#ifndef ABSTRACT_ITEM
+#define ABSTRACT_ITEM
 
 
 
@@ -68,4 +68,4 @@ protected:
 	std::vector <std::unique_ptr<Multi>> system_multiplier;
 };
 
-#endif //ABSTRACTITEM
+#endif //ABSTRACT_ITEM

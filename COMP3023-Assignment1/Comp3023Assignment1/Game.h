@@ -5,6 +5,7 @@
 #include "util.h"
 
 #include <vector>
+#include <random>
 
 class Game 
 {
@@ -32,8 +33,6 @@ private:
 	int current_cargo_value;
 	int quota;
 	
-	//keeps track of the memory of objects that are going to be used in the game
-	std::vector <AbstractItem*> useableItems;
 	//landed moon variable
 
 	//simulation parameters
@@ -41,6 +40,8 @@ private:
 	ItemManager itemManager;
 	// instance of moon manager
 	
+	//instance of num generator
+	std::mt19937 numGenerator;
 };
 
 

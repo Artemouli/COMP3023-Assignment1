@@ -18,11 +18,16 @@ void Game::initaliseNewGame()
 	balance = 50;
 	current_cargo_value = 0;
 	quota = 150;
+
+	//instance of random num generator is instantiated
+	std::mt19937 numGenerator(std::random_device{}());
+
 	//TODO: set current orbiting moon to corporation
 
-	std::cout << "in initalise" << std::endl;
+
 
 	defineItems();
+	
 
 	std::cout << "after defining" << std::endl;
 
@@ -34,11 +39,7 @@ void Game::defineItems()
 {
 	//creates the flashlight object and then calls itemManager
 	Flashlight* flashlight = new Flashlight();
-	
-	//inserts the new item at the end of the vector
-	useableItems.push_back(flashlight);
-	//gets the new item at registers it
-	itemManager.RegisterItem(useableItems.back());
+	itemManager.RegisterItem(flashlight);
 }
 
 //defines the moon and adds them to the hashmap
