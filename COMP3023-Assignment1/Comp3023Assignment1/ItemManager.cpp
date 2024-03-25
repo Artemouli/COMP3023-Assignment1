@@ -12,7 +12,14 @@ void ItemManager::Store()
 		std::cout << "* ";
 		std::cout << pair.second->getName();
 		std::cout << " // ";
-		std::cout << "Price: $" << pair.second->getPrice() << std::endl;
+		if (pair.second->getBought() == true)
+		{
+			std::cout << "Bought" << std::endl;
+		}
+		else
+		{
+			std::cout << "Price: $" << pair.second->getPrice() << std::endl;
+		}
 	}
 }
 
