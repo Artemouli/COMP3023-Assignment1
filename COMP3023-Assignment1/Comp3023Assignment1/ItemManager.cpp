@@ -10,20 +10,25 @@ void ItemManager::Store()
 	for (const auto& pair : items)
 	{
 		std::cout << "* ";
-		std::cout << pair.second->getName();
+		std::cout << pair.second->GetName();
 		std::cout << " // ";
-		if (pair.second->getBought() == true)
+		if (pair.second->GetBought() == true)
 		{
 			std::cout << "Bought" << std::endl;
 		}
 		else
 		{
-			std::cout << "Price: $" << pair.second->getPrice() << std::endl;
+			std::cout << "Price: $" << pair.second->GetPrice() << std::endl;
 		}
 	}
 }
 
 void ItemManager::RegisterItem(AbstractItem* new_item)
 {
-	items.insert({new_item->getName(), new_item});
+	items.insert({new_item->GetName(), new_item});
+}
+
+void ItemManager::DeleteItems()
+{
+	for
 }

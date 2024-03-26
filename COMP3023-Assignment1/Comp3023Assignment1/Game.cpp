@@ -12,7 +12,7 @@
 
 Game::~Game() {};
 
-void Game::initaliseNewGame()
+void Game::InitaliseNewGame()
 {
 	//initalise the starting variables
 	balance = 50;
@@ -35,7 +35,7 @@ void Game::initaliseNewGame()
 }
 
 //defines the items and adds them to the hashmap
-void Game::defineItems()
+void Game::DefineItems()
 {
 	//creates the flashlight object and then calls itemManager
 	Flashlight* flashlight = new Flashlight();
@@ -43,13 +43,14 @@ void Game::defineItems()
 }
 
 //defines the moon and adds them to the hashmap
-void Game::defineMoons()
+void Game::DefineMoons()
 {
 
 }
 
 //ends the game
-void Game::endGame()
+void Game::EndGame()
 {
 	//for loop here to delete the items in useableItems
+	itemManager.DeleteItems();
 }

@@ -15,16 +15,16 @@ public:
 
 
 	//the initaliser function that calls all the other functions
-	void initaliseNewGame();
+	void InitaliseNewGame();
 
 	//defines the items and adds them to the hashmap
-	void defineItems();
+	void DefineItems();
 
 	//defines the moons and adds them to the hashmap
-	void defineMoons();	
+	void DefineMoons();	
 
 	//ends the game
-	void endGame();
+	void EndGame();
 
 private:
 	int balance;
