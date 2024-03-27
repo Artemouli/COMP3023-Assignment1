@@ -12,16 +12,33 @@ public:
 		min_scrap(min),
 		max_scrap(max) {}
 
-	virtual std::string getName() const {
+	virtual std::string GetName() const {
 		return moon_name;
 	}
+
+	//Weather condition enum
+	enum class WeatherCondition {
+		Clear,
+		Flooded,
+		Eclipsed,
+		Stormy
+	};
+
+	//takes in a random number to decide the weather condition
+	virtual void ChooseWeatherCondition(int ranNum);
 	
+	//returns the current weather condition
+	virtual WeatherCondition GetWeatherCondition() const
+	{
+		return weather_condition;
+	};
 
 private:
 	std::string moon_name;
 	float base_survival_chance;
 	int min_scrap;
 	int max_scrap;
+	WeatherCondition weather_condition;
 };
 
 #endif
