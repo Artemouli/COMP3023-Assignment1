@@ -6,6 +6,7 @@
 #include "MoonManager.h"
 #include "Flashlight.h"
 #include "util.h"
+#include "AbstractMoon.h"
 
 //the initaliser function that calls all the other functions
 
@@ -23,7 +24,7 @@ void Game::InitaliseNewGame()
 	std::mt19937 numGenerator(std::random_device{}());
 
 	//TODO: set current orbiting moon to corporation
-
+	DefineMoons();
 
 
 	DefineItems();
@@ -31,6 +32,10 @@ void Game::InitaliseNewGame()
 
 	std::cout << "after defining" << std::endl;
 
+	itemManager.Store();
+
+	std::cout << "buy" << std::endl;
+	itemManager.Buy("Flashlight");
 	itemManager.Store();
 }
 

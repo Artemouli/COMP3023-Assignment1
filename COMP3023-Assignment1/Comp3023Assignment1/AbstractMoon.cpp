@@ -1,4 +1,5 @@
 #include "AbstractMoon.h"
+#include "Game.h"
 
 void AbstractMoon::ChooseWeatherCondition(int ranNum)
 {

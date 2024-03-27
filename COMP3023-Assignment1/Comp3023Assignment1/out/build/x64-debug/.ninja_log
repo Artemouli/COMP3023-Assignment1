@@ -1,0 +1,23 @@
+# ninja log v5
+19	1753	7332339750513586	CMakeFiles/Comp3023Assignment1.dir/AbstractItem.cpp.obj	2d10a61b08b354aa
+12	1791	7332339750809250	CMakeFiles/Comp3023Assignment1.dir/Multi.cpp.obj	a4a2b5129422c048
+32	1792	7332339750533594	CMakeFiles/Comp3023Assignment1.dir/MoonManager.cpp.obj	a931a0b6b7291ab6
+16	1795	7332339750954463	CMakeFiles/Comp3023Assignment1.dir/Flashlight.cpp.obj	cbd981dc501ce5ef
+8	1945	7332339752529575	CMakeFiles/Comp3023Assignment1.dir/Game.cpp.obj	f9ff06ea9cca2482
+28	2020	7332339753296619	CMakeFiles/Comp3023Assignment1.dir/AbstractMoon.cpp.obj	aa0b801bb4afdcff
+14	894	7332340275164783	CMakeFiles/Comp3023Assignment1.dir/ItemManager.cpp.obj	eda01f9ba884ffc4
+0	1002	7332340276246067	CMakeFiles/Comp3023Assignment1.dir/Comp3023Assignment1.cpp.obj	8c56be82547074bb
+1002	1359	7332340279692045	Comp3023Assignment1.exe	b7ab3a28650639b6
+1	808	7332340773646807	CMakeFiles/Comp3023Assignment1.dir/ItemManager.cpp.obj	eda01f9ba884ffc4
+808	979	7332340775018211	Comp3023Assignment1.exe	b7ab3a28650639b6
+1	871	7332340950836167	CMakeFiles/Comp3023Assignment1.dir/ItemManager.cpp.obj	eda01f9ba884ffc4
+872	1021	7332340952075873	Comp3023Assignment1.exe	b7ab3a28650639b6
+5	824	7332344915951731	CMakeFiles/Comp3023Assignment1.dir/ItemManager.cpp.obj	eda01f9ba884ffc4
+0	942	7332344917138778	CMakeFiles/Comp3023Assignment1.dir/Game.cpp.obj	f9ff06ea9cca2482
+942	1119	7332344918603711	Comp3023Assignment1.exe	b7ab3a28650639b6
+1	1448	7332345016385378	CMakeFiles/Comp3023Assignment1.dir/Game.cpp.obj	f9ff06ea9cca2482
+1449	1699	7332345018852476	Comp3023Assignment1.exe	b7ab3a28650639b6
+1	806	7332345731501237	CMakeFiles/Comp3023Assignment1.dir/ItemManager.cpp.obj	eda01f9ba884ffc4
+807	1081	7332345733881956	Comp3023Assignment1.exe	b7ab3a28650639b6
+1	941	7332345833686030	CMakeFiles/Comp3023Assignment1.dir/Game.cpp.obj	f9ff06ea9cca2482
+942	1112	7332345835039800	Comp3023Assignment1.exe	b7ab3a28650639b6

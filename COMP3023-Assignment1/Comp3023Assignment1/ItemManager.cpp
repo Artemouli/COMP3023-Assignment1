@@ -35,3 +35,18 @@ void ItemManager::DeleteItems()
 		delete pair.second;
 	}
 }
+
+void ItemManager::Buy(std::string buy_item_name)
+{
+	//prevents crashing
+	if (items.count(buy_item_name) > 0)
+	{
+		items.at(buy_item_name)->IsBought();
+	}
+	std::cout << "Item could not be found" << std::endl;
+}
+
+std::unordered_multimap<std::string, float> ItemManager::GetMulti()
+{
+	return system_multipliers;
+}

@@ -23,7 +23,8 @@ public:
 	void DeleteItems();
 	//apply multi
 
-	//add multi
+	//get multi
+	std::unordered_multimap<std::string, float> GetMulti();
 
 private: 
 	//keeps track of the items

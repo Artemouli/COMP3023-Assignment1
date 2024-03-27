@@ -1,8 +1,10 @@
 #include <iostream>
+class Game;
 
 
 #ifndef ABSTRACT_MOON
 #define ABSTRACT_MOON
+
 
 class AbstractMoon {
 public:
@@ -18,7 +20,7 @@ public:
 
 	//this is for moons that have a cost
 	//checks if the user is sure to route to a moon with a price
-	virtual void OnNavigate(Game& game) const {};
+	virtual void OnNavigate(Game& game) const = 0;
 
 	//Weather condition enum
 	enum class WeatherCondition {

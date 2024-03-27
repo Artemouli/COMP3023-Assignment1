@@ -10,6 +10,6 @@ int main()
 {
 	cout << "Hello CMake." << endl;
 	Game game;
-	game.initaliseNewGame();
+	game.InitaliseNewGame();
 	return 0;
 }

@@ -39,7 +39,7 @@ private:
 	//instance of item manager
 	ItemManager itemManager;
 	// instance of moon manager
-	
+	MoonManager moonManager;
 	//instance of num generator
 	std::mt19937 numGenerator;
 };
