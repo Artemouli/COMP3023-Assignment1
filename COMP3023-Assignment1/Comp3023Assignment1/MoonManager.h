@@ -1,5 +1,6 @@
 
 #include "AbstractMoon.h"
+#include <map>
 
 #ifndef MOONMANAGER
 #define MOONMANAGER
@@ -9,6 +10,8 @@ public:
 	void RegisterMoon(AbstractMoon* newMoon);
 
 	void ViewMoons();
+
+	void DeleteMoons();
 
 private:
 	//keeps track of the moons
