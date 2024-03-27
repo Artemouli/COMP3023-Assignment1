@@ -26,7 +26,7 @@ void Game::InitaliseNewGame()
 
 
 
-	defineItems();
+	DefineItems();
 	
 
 	std::cout << "after defining" << std::endl;

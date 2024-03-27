@@ -30,5 +30,8 @@ void ItemManager::RegisterItem(AbstractItem* new_item)
 
 void ItemManager::DeleteItems()
 {
-	for
+	for (const auto& pair : items)
+	{
+		delete pair.second;
+	}
 }
