@@ -6,7 +6,7 @@
 
 class AbstractMoon {
 public:
-	AbstractMoon(std::string new_name, float new_survival_chance, new min, new max) :
+	AbstractMoon(std::string new_name, float new_survival_chance, int min, int max) :
 		moon_name(new_name),
 		base_survival_chance(new_survival_chance),
 		min_scrap(min),
@@ -18,17 +18,18 @@ public:
 
 	//Weather condition enum
 	enum class WeatherCondition {
-		Clear,
-		Flooded,
-		Eclipsed,
-		Stormy
+		Clear, //no effect
+		Flooded, //multiply explorer survival chance by 0.7
+		Eclipsed, //multiply explorer survival chance by 0.9 and operator survival chance by 0.7
+		Stormy //multiply scrap value multiplier by 0.75
 	};
 
 	//takes in a random number to decide the weather condition
+	//random number should be between 0 and 100 to reflect percentage change %
 	virtual void ChooseWeatherCondition(int ranNum);
 	
 	//returns the current weather condition
-	virtual WeatherCondition GetWeatherCondition() const
+	virtual WeatherCondition GetWeatherCondition() const 
 	{
 		return weather_condition;
 	};
