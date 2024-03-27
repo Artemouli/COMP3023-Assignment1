@@ -98,6 +98,13 @@ build CMakeFiles\Comp3023Assignment1.dir\AbstractMoon.cpp.obj: CXX_COMPILER__Com
   TARGET_COMPILE_PDB = CMakeFiles\Comp3023Assignment1.dir\
   TARGET_PDB = Comp3023Assignment1.pdb
 
+build CMakeFiles\Comp3023Assignment1.dir\MoonManager.cpp.obj: CXX_COMPILER__Comp3023Assignment1_Debug C$:\Users\artem\OneDrive$ -$ University$ of$ South$ Australia\Uni\Year$ 3\Semester$ 1\Design$ Patterns\Assignment$ 1\Assignment\COMP3023-Assignment1\Comp3023Assignment1\MoonManager.cpp || cmake_object_order_depends_target_Comp3023Assignment1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
+  OBJECT_DIR = CMakeFiles\Comp3023Assignment1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Comp3023Assignment1.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Comp3023Assignment1.dir\
+  TARGET_PDB = Comp3023Assignment1.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Comp3023Assignment1
@@ -106,7 +113,7 @@ build CMakeFiles\Comp3023Assignment1.dir\AbstractMoon.cpp.obj: CXX_COMPILER__Com
 #############################################
 # Link the executable Comp3023Assignment1.exe
 
-build Comp3023Assignment1.exe: CXX_EXECUTABLE_LINKER__Comp3023Assignment1_Debug CMakeFiles\Comp3023Assignment1.dir\Comp3023Assignment1.cpp.obj CMakeFiles\Comp3023Assignment1.dir\Game.cpp.obj CMakeFiles\Comp3023Assignment1.dir\ItemManager.cpp.obj CMakeFiles\Comp3023Assignment1.dir\AbstractItem.cpp.obj CMakeFiles\Comp3023Assignment1.dir\Flashlight.cpp.obj CMakeFiles\Comp3023Assignment1.dir\Multi.cpp.obj CMakeFiles\Comp3023Assignment1.dir\AbstractMoon.cpp.obj
+build Comp3023Assignment1.exe: CXX_EXECUTABLE_LINKER__Comp3023Assignment1_Debug CMakeFiles\Comp3023Assignment1.dir\Comp3023Assignment1.cpp.obj CMakeFiles\Comp3023Assignment1.dir\Game.cpp.obj CMakeFiles\Comp3023Assignment1.dir\ItemManager.cpp.obj CMakeFiles\Comp3023Assignment1.dir\AbstractItem.cpp.obj CMakeFiles\Comp3023Assignment1.dir\Flashlight.cpp.obj CMakeFiles\Comp3023Assignment1.dir\Multi.cpp.obj CMakeFiles\Comp3023Assignment1.dir\AbstractMoon.cpp.obj CMakeFiles\Comp3023Assignment1.dir\MoonManager.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
