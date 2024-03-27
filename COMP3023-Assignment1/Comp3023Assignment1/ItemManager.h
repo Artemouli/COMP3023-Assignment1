@@ -22,10 +22,15 @@ public:
 
 	//is called by the end game function to free up memory
 	void DeleteItems();
+	
 	//apply multi
+	//takes in the current chance and the parameter that is being affected, multiplies the chance by the parameter multipliers
+	float ApplyMulti(float parameter_chance, std::string parameter_name);
 
 	//get multi
-	std::unordered_multimap<std::string, float> GetMulti();
+	//std::unordered_multimap<std::string, float>* GetMulti();
+
+
 
 private: 
 	//keeps track of the items

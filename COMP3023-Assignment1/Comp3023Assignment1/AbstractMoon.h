@@ -42,6 +42,7 @@ public:
 
 	//this only works on explorable moons
 	//employee count must be over 1 and under the amount of alive employees
+	//calculations for survival are done here
 	virtual void SendEmployees(Game& game, int employee_count);
 
 	//this only works on corporation moon

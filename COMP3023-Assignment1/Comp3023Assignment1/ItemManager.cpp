@@ -52,10 +52,10 @@ void ItemManager::Buy(std::string buy_item_name)
 		}
 
 		//test
-		for (const auto& pair : system_multipliers)
+		/*for (const auto& pair : system_multipliers)
 		{
 			std::cout << pair.first << " " << pair.second << std::endl;
-		}
+		} */
 	}
 	else
 	{
@@ -63,7 +63,25 @@ void ItemManager::Buy(std::string buy_item_name)
 	}
 }
 
-std::unordered_multimap<std::string, float> ItemManager::GetMulti()
+float ItemManager::ApplyMulti(float parameter_chance, std::string parameter_name)
 {
-	return system_multipliers;
+	if (system_multipliers.count(parameter_name) > 0)
+	{
+		//if parameters do exist
+		auto multis = system_multipliers.equal_range(parameter_name);
+		for (auto parameter_multi = multis.first; parameter_multi != multis.second; ++parameter_multi)
+		{
+			//multiplies the parameter chance by the paramter_multi
+			parameter_chance = parameter_chance * parameter_multi->second;
+		}
+		return parameter_chance;
+	}
+
+	//no parameters exist so return chance
+	return parameter_chance;
 }
+
+/*std::unordered_multimap<std::string, float>* ItemManager::GetMulti()
+{
+	return &system_multipliers;
+}*/

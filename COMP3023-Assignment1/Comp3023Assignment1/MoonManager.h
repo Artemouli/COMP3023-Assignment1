@@ -13,6 +13,7 @@ public:
 
 	void DeleteMoons();
 
+
 private:
 	//keeps track of the moons
 	std::map<std::string, AbstractMoon*> moons;
