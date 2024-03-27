@@ -16,9 +16,13 @@ public:
 		return moon_name;
 	}
 
+	//this is for moons that have a cost
+	//checks if the user is sure to route to a moon with a price
+	virtual void OnNavigate(Game& game) const {};
+
 	//Weather condition enum
 	enum class WeatherCondition {
-		Clear, //no effect
+		Clear = 0, //no effect
 		Flooded, //multiply explorer survival chance by 0.7
 		Eclipsed, //multiply explorer survival chance by 0.9 and operator survival chance by 0.7
 		Stormy //multiply scrap value multiplier by 0.75
@@ -33,6 +37,17 @@ public:
 	{
 		return weather_condition;
 	};
+
+	//this only works on explorable moons
+	//employee count must be over 1 and under the amount of alive employees
+	virtual void SendEmployees(Game& game, int employee_count);
+
+	//this only works on corporation moon
+	//this method is overridden by the corporation moon
+	virtual void SellCargo(Game& game, int amount) const = 0;
+	
+	virtual void OnDayBegins(Game& game);
+
 
 private:
 	std::string moon_name;

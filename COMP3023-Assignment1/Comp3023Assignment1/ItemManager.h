@@ -29,8 +29,17 @@ private:
 	//keeps track of the items
 	std::map<std::string, AbstractItem*> items;
 
+	//affected parameters:
+	//scrap value multiplier: value
+	//explorer survival chance multiplier: explorer
+	//operator survival chance multiplier: operator
+	//explorer save chance: save
+	//loot recovery multiplier: loot_recov
+
 	//system_multiplers < multiplier name, multipler>
-	//e.g. system_multipliers < Scrap Value Multiplier, 1.10 >
+	//e.g. system_multipliers < value, 1.10 >
+	//system_multipliers < value, 1.05 >
+	//both values multiply the specific multiplier
 	std::unordered_multimap<std::string, float> system_multipliers;
 };
 
