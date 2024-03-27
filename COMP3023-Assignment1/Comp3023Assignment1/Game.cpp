@@ -34,7 +34,6 @@ void Game::InitaliseNewGame()
 
 	itemManager.Store();
 
-	std::cout << "buy" << std::endl;
 	itemManager.Buy("Flashlight");
 	itemManager.Store();
 }

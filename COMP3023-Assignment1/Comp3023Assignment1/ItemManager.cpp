@@ -42,8 +42,25 @@ void ItemManager::Buy(std::string buy_item_name)
 	if (items.count(buy_item_name) > 0)
 	{
 		items.at(buy_item_name)->IsBought();
+
+		//add multipliers
+		std::vector<Multi*> tempMulti = items.at(buy_item_name)->GetMulti();
+		
+		for (const auto& multi : tempMulti)
+		{
+			system_multipliers.insert(std::make_pair(multi->getParameter(), multi->getMultiplier()));
+		}
+
+		//test
+		for (const auto& pair : system_multipliers)
+		{
+			std::cout << pair.first << " " << pair.second << std::endl;
+		}
 	}
-	std::cout << "Item could not be found" << std::endl;
+	else
+	{
+		std::cout << "Item could not be found" << std::endl;
+	}
 }
 
 std::unordered_multimap<std::string, float> ItemManager::GetMulti()

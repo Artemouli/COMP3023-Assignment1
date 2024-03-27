@@ -17,6 +17,7 @@ public:
 
 	void Store();
 
+	//handles setting the bought and setting the multipliers
 	void Buy(std::string buy_item_name);
 
 	//is called by the end game function to free up memory

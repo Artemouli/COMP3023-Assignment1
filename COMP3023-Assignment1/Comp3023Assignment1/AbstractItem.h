@@ -33,17 +33,15 @@ public:
 	};
 
 	//gets the multiplier float
-	virtual float GetMulti(std::string parameter_name) {
-		for (int i = 0; i < system_multiplier.size(); i++)
-		{
-			if (system_multiplier[i]->getParameter().compare(parameter_name))
-			{
-				//return the pointer that points to the specific Multi
-				return system_multiplier[i]->getMultiplier();
-			}
-		}
+	virtual std::vector<Multi*> GetMulti() {
+		//return the pointer that points to the vector
+		return system_multiplier;
 	}
 
+	virtual void DeleteMulti()
+	{
+		system_multiplier.clear();
+	}
 	//adds the multiplier to the bought_items multimap
 	//this should be in the Item Manager
 	/*virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items) const
@@ -59,7 +57,7 @@ private:
 //system_multiplier is made protected so that the objects that inherit AbstractItem can use it
 protected:
 	//std::vector <Multi*> system_multiplier;
-	std::vector <std::unique_ptr<Multi>> system_multiplier;
+	std::vector <Multi*> system_multiplier;
 };
 
 #endif //ABSTRACT_ITEM
