@@ -33,9 +33,9 @@ public:
 	};
 
 	//gets the multiplier float
-	virtual std::vector<Multi*> GetMulti() {
+	virtual std::vector<Multi*>* GetMulti() {
 		//return the pointer that points to the vector
-		return system_multiplier;
+		return &system_multiplier;
 	}
 
 	virtual void DeleteMulti()

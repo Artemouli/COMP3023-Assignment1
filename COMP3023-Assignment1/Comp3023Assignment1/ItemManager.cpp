@@ -44,9 +44,9 @@ void ItemManager::Buy(std::string buy_item_name)
 		items.at(buy_item_name)->IsBought();
 
 		//add multipliers
-		std::vector<Multi*> tempMulti = items.at(buy_item_name)->GetMulti();
+		std::vector<Multi*>* tempMulti = items.at(buy_item_name)->GetMulti();
 		
-		for (const auto& multi : tempMulti)
+		for (Multi* multi : *tempMulti)
 		{
 			system_multipliers.insert(std::make_pair(multi->getParameter(), multi->getMultiplier()));
 		}
