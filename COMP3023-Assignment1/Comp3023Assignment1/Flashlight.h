@@ -1,7 +1,6 @@
 #ifndef FLASHLIGHT
 #define FLASHLIGHT
 #include "AbstractItem.h"
-#include "Multi.h"
 
 class Flashlight : public AbstractItem
 {

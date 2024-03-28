@@ -8,5 +8,5 @@ Flashlight::Flashlight(std::string newName, int newPrice) : AbstractItem(newName
 {
 	//Multi* scrap_value_multi = new Multi("explorer", 1.05f);
 	//creates the explorer multiplier
-	system_multiplier.push_back( new Multi("explorer", 1.05f));
+	system_multiplier.insert(std::make_pair("explorer", 1.05f));
 }

@@ -36,6 +36,14 @@ void Game::InitaliseNewGame()
 
 	itemManager.Buy("Flashlight");
 	itemManager.Store();
+
+	float temp = 50;
+	std::string s_temp = "explorer";
+	std::cout << "temp: " << temp << std::endl;
+	temp = itemManager.ApplyMulti(temp, s_temp);
+	std::cout << "temp: " << temp << std::endl;
+
+
 }
 
 //defines the items and adds them to the hashmap

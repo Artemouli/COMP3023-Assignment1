@@ -2,7 +2,6 @@
 #include <map>
 #include <memory>
 #include <vector>
-#include "Multi.h"
 
 #ifndef ABSTRACT_ITEM
 #define ABSTRACT_ITEM
@@ -33,9 +32,13 @@ public:
 	};
 
 	//gets the multiplier float
-	virtual std::vector<Multi*>* GetMulti() {
-		//return the pointer that points to the vector
-		return &system_multiplier;
+	virtual float GetMulti(std::string parameter_name) {
+		if (system_multiplier.count(parameter_name))
+		{
+			return system_multiplier.at(parameter_name);
+		}
+		//if parameter doesnt exist
+		return 1;
 	}
 
 	virtual void DeleteMulti()
@@ -57,7 +60,9 @@ private:
 //system_multiplier is made protected so that the objects that inherit AbstractItem can use it
 protected:
 	//std::vector <Multi*> system_multiplier;
-	std::vector <Multi*> system_multiplier;
+	//std::vector <Multi*> system_multiplier;
+	//multi is not needed, a hashmap that contains the two values would be more efficient then having objects
+	std::map <std::string, float> system_multiplier;
 };
 
 #endif //ABSTRACT_ITEM

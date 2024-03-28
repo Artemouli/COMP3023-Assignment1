@@ -14,7 +14,7 @@ public:
 		min_scrap(min),
 		max_scrap(max) {}
 
-	virtual std::string GetName() const {
+	virtual const std::string GetName() const {
 		return moon_name;
 	}
 
