@@ -52,9 +52,11 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 				//converts the float back into an int
 				temp_min_scrap = temp_min_scrap * 0.75;
 				temp_max_scrap = temp_max_scrap * 0.75;
+				break;
 			case WeatherCondition::Eclipsed:
 				temp_explorer_survival_chance = temp_explorer_survival_chance * 0.7;
 				temp_operator_survival_chance = temp_operator_survival_chance * 0.9;
+				break;
 		}
 
 		//affected parameters:

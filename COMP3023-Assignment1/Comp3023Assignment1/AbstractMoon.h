@@ -34,10 +34,24 @@ public:
 	//random number should be between 0 and 100 to reflect percentage change %
 	virtual void ChooseWeatherCondition(int ranNum);
 	
-	//returns the current weather condition
-	virtual WeatherCondition GetWeatherCondition() const 
+	//returns the current weather condition as a string for printing
+	virtual std::string GetWeatherCondition() const 
 	{
-		return weather_condition;
+		switch (weather_condition)
+		{
+			case WeatherCondition::Flooded:
+				return " (Flooded)";
+				break;
+			case WeatherCondition::Stormy:
+				return " (Stormy)";
+				break;
+			case WeatherCondition::Eclipsed:
+				return " (Eclipsed)";
+				break;
+			default:
+				return "";
+				break;
+		}
 	};
 
 	//this only works on explorable moons
@@ -50,6 +64,12 @@ public:
 	virtual void SellCargo(Game& game, int amount) const = 0;
 	
 	virtual void OnDayBegins(Game& game);
+
+	//intended to be overridden by moons which do have a price
+	virtual int GetPrice() const = 0
+	{
+		return 0;
+	};
 
 
 private:
