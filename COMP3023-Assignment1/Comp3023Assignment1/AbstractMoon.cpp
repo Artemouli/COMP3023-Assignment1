@@ -66,8 +66,8 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 
 
 		//applies multi
-		min_scrap = game.ApplyItemManagerMulti(min_scrap, "value");
-		max_scrap = game.ApplyItemManagerMulti(max_scrap, "value");
+		temp_min_scrap = game.ApplyItemManagerMulti(temp_min_scrap, "value");
+		temp_max_scrap = game.ApplyItemManagerMulti(temp_max_scrap, "value");
 
 		//applies explorer
 		temp_explorer_survival_chance = game.ApplyItemManagerMulti(temp_explorer_survival_chance, "explorer");
@@ -80,5 +80,7 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 
 		//loot recov
 		temp_loot_recov = game.ApplyItemManagerMulti(temp_loot_recov, "loot");
+
+
 	}
 }
