@@ -10,6 +10,13 @@
 
 //the initaliser function that calls all the other functions
 
+//multipliers
+//scrap value multi = scrap
+//explorer survival chance = explorer
+//operator survival chance = operator
+//explorer save chance = save
+//loot recovery multi = loot
+
 
 Game::~Game() {};
 
@@ -58,6 +65,11 @@ void Game::DefineItems()
 void Game::DefineMoons()
 {
 
+}
+
+float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_name)
+{
+	return itemManager.ApplyMulti(parameter_chance, parameter_name);
 }
 
 //ends the game

@@ -10,7 +10,7 @@ class AbstractMoon {
 public:
 	AbstractMoon(std::string new_name, float new_survival_chance, int min, int max) :
 		moon_name(new_name),
-		base_survival_chance(new_survival_chance),
+		base_explorer_survival_chance(new_survival_chance),
 		min_scrap(min),
 		max_scrap(max) {}
 
@@ -43,7 +43,7 @@ public:
 	//this only works on explorable moons
 	//employee count must be over 1 and under the amount of alive employees
 	//calculations for survival are done here
-	virtual void SendEmployees(Game& game, int employee_count);
+	virtual void SendEmployees(Game& game, int employee_count) = 0;
 
 	//this only works on corporation moon
 	//this method is overridden by the corporation moon
@@ -54,7 +54,8 @@ public:
 
 private:
 	std::string moon_name;
-	float base_survival_chance;
+	float base_explorer_survival_chance;
+	float loot_recov_chance = 0.5f;
 	int min_scrap;
 	int max_scrap;
 	WeatherCondition weather_condition;

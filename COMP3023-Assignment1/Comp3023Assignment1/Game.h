@@ -26,6 +26,9 @@ public:
 	//ends the game
 	void EndGame();
 
+	//exclusively used by abstract moon so it can apply the multi
+	float ApplyItemManagerMulti(float parameter_chance, std::string parameter_name);
+
 private:
 	int balance;
 	int total_days;

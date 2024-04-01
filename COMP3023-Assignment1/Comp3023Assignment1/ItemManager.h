@@ -41,7 +41,7 @@ private:
 	//explorer survival chance multiplier: explorer
 	//operator survival chance multiplier: operator
 	//explorer save chance: save
-	//loot recovery multiplier: loot_recov
+	//loot recovery multiplier: loot
 
 	//system_multiplers < multiplier name, multipler>
 	//e.g. system_multipliers < value, 1.10 >

@@ -45,12 +45,6 @@ public:
 	{
 		system_multiplier.clear();
 	}
-	//adds the multiplier to the bought_items multimap
-	//this should be in the Item Manager
-	/*virtual void ApplyMulti(std::multimap <std::string, float>& rBought_items) const
-	{
-		
-	}; */
 
 private:
 	std::string name;

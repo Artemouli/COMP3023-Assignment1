@@ -42,20 +42,6 @@ void ItemManager::Buy(std::string buy_item_name)
 	if (items.count(buy_item_name) > 0)
 	{
 		items.at(buy_item_name)->IsBought();
-
-		//add multipliers
-		/*std::map<std::string, float>* tempMulti = items.at(buy_item_name)->GetMulti();
-		
-		for (const auto& pair : *tempMulti)
-		{
-			system_multipliers.insert(std::make_pair(pair.first, pair.second));
-		} */
-
-		//test
-		/*for (const auto& pair : system_multipliers)
-		{
-			std::cout << pair.first << " " << pair.second << std::endl;
-		} */
 	}
 	else
 	{
@@ -72,27 +58,18 @@ float ItemManager::ApplyMulti(float parameter_chance, std::string parameter_name
 		{
 			//retrieves the multiplier float from the system_multiplier hashmap
 			//if the system_multiplier hashmap does not have the parameter_name, returns 1
-			parameter_chance = parameter_chance * pair.second->GetMulti(parameter_name);
+			//is for setting the save chance
+			if (parameter_name == "save")
+			{
+				parameter_chance = parameter_chance = pair.second->GetMulti(parameter_name);
+			}
+			else
+			{
+				parameter_chance = parameter_chance * pair.second->GetMulti(parameter_name);
+			}
 		}
 	}
-	//old code
-	/*if (system_multipliers.count(parameter_name) > 0)
-	{
-		//if parameters do exist
-		auto multis = system_multipliers.equal_range(parameter_name);
-		for (auto parameter_multi = multis.first; parameter_multi != multis.second; ++parameter_multi)
-		{
-			//multiplies the parameter chance by the paramter_multi
-			parameter_chance = parameter_chance * parameter_multi->second;
-		}
-		return parameter_chance;
-	} */
 
 	//no parameters exist so return chance
 	return parameter_chance;
 }
-
-/*std::unordered_multimap<std::string, float>* ItemManager::GetMulti()
-{
-	return &system_multipliers;
-}*/
