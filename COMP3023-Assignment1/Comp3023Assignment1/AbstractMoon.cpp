@@ -27,6 +27,10 @@ void AbstractMoon::ChooseWeatherCondition(int ranNum)
 	}
 }
 
+void AbstractMoon::OnDayBegins(Game& game)
+{
+}
+
 void AbstractMoon::SendEmployees(Game& game, int employee_count)
 {
 	if (employee_count > 0)

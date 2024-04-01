@@ -25,5 +25,5 @@ void MoonManager::ViewMoons()
 
 void MoonManager::DeleteMoons()
 {
-
+	moons.clear();
 }

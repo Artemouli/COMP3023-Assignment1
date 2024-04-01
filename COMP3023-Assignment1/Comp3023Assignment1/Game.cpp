@@ -17,7 +17,6 @@
 //explorer save chance = save
 //loot recovery multi = loot
 
-
 Game::~Game() {};
 
 void Game::InitaliseNewGame()
@@ -26,9 +25,6 @@ void Game::InitaliseNewGame()
 	balance = 50;
 	current_cargo_value = 0;
 	quota = 150;
-
-	//instance of random num generator is instantiated
-	std::mt19937 numGenerator(std::random_device{}());
 
 	//TODO: set current orbiting moon to corporation
 	DefineMoons();
@@ -72,9 +68,19 @@ float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_
 	return itemManager.ApplyMulti(parameter_chance, parameter_name);
 }
 
+//used for generating a number that AbstractMoon can use
+int Game::GenerateNum()
+{
+	//instance of random num generator is instantiated
+	std::mt19937 numGenerator(std::random_device{}());
+	std::uniform_int_distribution<int> dist(0, 100);
+	return dist(numGenerator);
+}
+
 //ends the game
 void Game::EndGame()
 {
 	//for loop here to delete the items in useableItems
 	itemManager.DeleteItems();
 }
+

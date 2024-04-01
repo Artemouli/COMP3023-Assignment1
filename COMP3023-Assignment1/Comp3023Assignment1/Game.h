@@ -29,12 +29,17 @@ public:
 	//exclusively used by abstract moon so it can apply the multi
 	float ApplyItemManagerMulti(float parameter_chance, std::string parameter_name);
 
+	//used to generate a number
+	int GenerateNum();
+
 private:
 	int balance;
 	int total_days;
 	int current_day;
 	int current_cargo_value;
 	int quota;
+	int current_alive_crew;
+
 	
 	//landed moon variable
 
