@@ -29,6 +29,7 @@ void AbstractMoon::ChooseWeatherCondition(int ranNum)
 
 void AbstractMoon::OnDayBegins(Game& game)
 {
+
 }
 
 void AbstractMoon::SendEmployees(Game& game, int employee_count)
@@ -70,23 +71,22 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		//explorer save chance: save
 		//loot recovery multiplier: loot
 
-
 		//applies multi
 		temp_min_scrap = game.ApplyItemManagerMulti(temp_min_scrap, "value");
 		temp_max_scrap = game.ApplyItemManagerMulti(temp_max_scrap, "value");
-
 		//applies explorer
 		temp_explorer_survival_chance = game.ApplyItemManagerMulti(temp_explorer_survival_chance, "explorer");
-
 		//applies operator
 		temp_operator_survival_chance = game.ApplyItemManagerMulti(temp_operator_survival_chance, "operator");
-
 		//save chance
 		explorer_save_chance = game.ApplyItemManagerMulti(explorer_save_chance, "save");
-
 		//loot recov
 		temp_loot_recov = game.ApplyItemManagerMulti(temp_loot_recov, "loot");
 
-
+		//system parameter calculations 
+		for (int i = 0; i < employee_count; i++)
+		{
+			
+		}
 	}
 }

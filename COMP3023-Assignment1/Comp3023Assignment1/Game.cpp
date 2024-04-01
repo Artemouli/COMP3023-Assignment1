@@ -69,11 +69,12 @@ float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_
 }
 
 //used for generating a number that AbstractMoon can use
-int Game::GenerateNum()
+//default values for calling to get typical percentage chance
+int Game::GenerateNum(int min = 0, int max = 100)
 {
 	//instance of random num generator is instantiated
 	std::mt19937 numGenerator(std::random_device{}());
-	std::uniform_int_distribution<int> dist(0, 100);
+	std::uniform_int_distribution<int> dist(min, max);
 	return dist(numGenerator);
 }
 

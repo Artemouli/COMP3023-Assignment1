@@ -30,7 +30,7 @@ public:
 	float ApplyItemManagerMulti(float parameter_chance, std::string parameter_name);
 
 	//used to generate a number
-	int GenerateNum();
+	int GenerateNum(int min = 0, int max = 100);
 
 private:
 	int balance;
