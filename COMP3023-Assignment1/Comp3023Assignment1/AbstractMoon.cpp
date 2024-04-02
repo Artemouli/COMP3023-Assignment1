@@ -39,6 +39,11 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 	{
 		//keeps track of the number of exploring employees
 		int alive_exploring = employee_count;
+		//keeps track of the number of employees who have died 
+		int dead_employees = 0;
+		//keeps track of the total scrap collected in the day
+		int total_scrap = 0;
+
 
 		float temp_explorer_survival_chance = base_explorer_survival_chance;
 		float temp_operator_survival_chance = 1;
@@ -106,6 +111,7 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 				{
 					game.DecreaseAliveCrew();
 					alive_exploring--;
+					dead_employees++;
 					//if there are still employees that are alive exploring
 					//those employees will collect the dead employees collected scrap
 					if (alive_exploring > 0)
@@ -119,14 +125,27 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 			{
 				game.DecreaseAliveCrew();
 			}
-
+			
+			game.IncreaseCargoValue(collected_scrap);
+			total_scrap += collected_scrap;
+		}
+		if (alive_exploring > 0)
+		{
+			std::cout << alive_exploring << " employees made it back to the ship, bringing $";
+			std::cout << total_scrap << " worth of scrap. " << dead_employees << " died." << std::endl;
+		}
+		//if all the exploring employees have died
+		else if (alive_exploring == 0)
+		{
+			//if operator survives
 			if (game.CurrentAliveCrew() > 0)
 			{
-				game.IncreaseCargoValue(collected_scrap);
+				std::cout << "None of the employees managed to make it back. " << game.CurrentAliveCrew() << " employee left." << std::endl;
 			}
+			//if operator dies
 			else
 			{
-				game.AllEmployeesDead();
+
 			}
 		}
 	}

@@ -43,12 +43,12 @@ public:
 	void AllEmployeesDead();
 
 private:
-	int balance;
-	int total_days;
-	int current_day;
-	int current_cargo_value;
-	int quota;
-	int current_alive_crew;
+	int balance = 50;
+	int total_days = 0;
+	int current_day = 0;
+	int current_cargo_value = 0;
+	int quota = 150;
+	int current_alive_crew = 4;
 
 	
 	//landed moon variable

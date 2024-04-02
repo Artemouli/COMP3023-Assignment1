@@ -30,6 +30,7 @@ void Game::InitaliseNewGame()
 	balance = 50;
 	current_cargo_value = 0;
 	quota = 150;
+	current_alive_crew = 4;
 
 	//TODO: set current orbiting moon to corporation
 	DefineMoons();
@@ -54,6 +55,10 @@ void Game::InitaliseNewGame()
 	moonManager.ViewMoons();
 
 	AbstractMoon* tempProto = moonManager.GetMoon("Prototyping");
+
+	tempProto->SendEmployees(*this, 3);
+
+	std::cout << "money " << current_cargo_value << std::endl;
 
 	tempProto->ChooseWeatherCondition(0.5f);
 
