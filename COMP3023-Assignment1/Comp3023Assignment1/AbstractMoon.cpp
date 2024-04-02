@@ -5,6 +5,7 @@
 
 void AbstractMoon::ChooseWeatherCondition(float ranNum)
 {
+
 	//clear weather
 	if (ranNum < 0.25f)
 	{
@@ -29,7 +30,7 @@ void AbstractMoon::ChooseWeatherCondition(float ranNum)
 
 void AbstractMoon::OnDayBegins(Game& game)
 {
-	ChooseWeatherCondition(game.GenerateNum())
+	ChooseWeatherCondition(game.GenerateNum());
 }
 
 void AbstractMoon::SendEmployees(Game& game, int employee_count)

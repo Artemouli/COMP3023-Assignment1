@@ -12,7 +12,7 @@ public:
 		moon_name(new_name),
 		base_explorer_survival_chance(new_survival_chance),
 		min_scrap(min),
-		max_scrap(max) {}
+		max_scrap(max) {};
 
 	virtual const std::string GetName() const {
 		return moon_name;
@@ -20,7 +20,10 @@ public:
 
 	//this is for moons that have a cost
 	//checks if the user is sure to route to a moon with a price
-	virtual void OnNavigate(Game& game) const = 0;
+	virtual void OnNavigate(Game& game)
+	{
+		std::cout << "" << std::endl;
+	};
 
 	//Weather condition enum
 	enum class WeatherCondition {
@@ -57,19 +60,21 @@ public:
 	//this only works on explorable moons
 	//employee count must be over 1 and under the amount of alive employees
 	//calculations for survival are done here
-	virtual void SendEmployees(Game& game, int employee_count) = 0;
+	virtual void SendEmployees(Game& game, int employee_count);
 
 	//this only works on corporation moon
 	//this method is overridden by the corporation moon
-	virtual void SellCargo(Game& game, int amount) const = 0;
+	virtual void SellCargo(Game& game, int amount) = 0;
 	
 	virtual void OnDayBegins(Game& game);
 
 	//intended to be overridden by moons which do have a price
-	virtual int GetPrice() const = 0
+	virtual int GetPrice()
 	{
 		return 0;
 	};
+
+	virtual ~AbstractMoon() {};
 
 
 private:

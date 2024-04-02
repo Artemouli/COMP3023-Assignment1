@@ -3,8 +3,13 @@
 
 #include "Game.h"
 #include "ItemManager.h"
-#include "MoonManager.h"
+
 #include "Flashlight.h"
+
+#include "MoonManager.h"
+
+#include "Prototyping.h"
+
 #include "util.h"
 #include "AbstractMoon.h"
 
@@ -60,7 +65,8 @@ void Game::DefineItems()
 //defines the moon and adds them to the hashmap
 void Game::DefineMoons()
 {
-
+	Prototyping* prototyping = new Prototyping();
+	moonManager.RegisterMoon(prototyping);
 }
 
 float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_name)
