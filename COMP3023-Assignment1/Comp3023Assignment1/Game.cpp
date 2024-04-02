@@ -89,6 +89,16 @@ int* Game::CurrentAliveCrew()
 	return &current_alive_crew;
 }
 
+void Game::IncreaseCargoValue(int scrap)
+{
+	current_cargo_value = current_cargo_value + scrap;
+}
+
+void Game::AllEmployeesDead()
+{
+	current_cargo_value = 0;
+}
+
 //ends the game
 void Game::EndGame()
 {

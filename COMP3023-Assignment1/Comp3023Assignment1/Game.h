@@ -37,6 +37,11 @@ public:
 	//used to get current amount of alive crew
 	int* CurrentAliveCrew();
 
+	//used to increase amount of current cargo value
+	void IncreaseCargoValue(int scrap);
+	//used when all of the employees have died
+	void AllEmployeesDead();
+
 private:
 	int balance;
 	int total_days;

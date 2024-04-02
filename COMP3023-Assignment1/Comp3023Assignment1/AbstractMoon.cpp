@@ -36,6 +36,9 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 {
 	if (employee_count > 0)
 	{
+		//keeps track of the number of exploring employees
+		int alive_exploring = employee_count;
+
 		float temp_explorer_survival_chance = base_explorer_survival_chance;
 		float temp_operator_survival_chance = 100;
 		//is temporaly a float for multiplications
@@ -84,7 +87,7 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		temp_loot_recov = game.ApplyItemManagerMulti(temp_loot_recov, "loot");
 
 		//system parameter calculations 
-		for (int i = 0; i < employee_count; i++)
+		for (int i = 1; i < employee_count; i++)
 		{
 			//collected scrap
 			int collected_scrap = game.GenerateNum(static_cast<int>(temp_min_scrap), static_cast<int>(temp_max_scrap));
@@ -101,8 +104,28 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 				else
 				{
 					game.DecreaseAliveCrew();
+					alive_exploring--;
+					//if there are still employees that are alive exploring
+					//those employees will collect the dead employees collected scrap
+					if (alive_exploring > 0)
+					{
+						collected_scrap = collected_scrap * temp_loot_recov;
+					}
 				}
+			}
+			//check to see if the operator is killed
+			if (game.GenerateNum() > temp_operator_survival_chance)
+			{
+				game.DecreaseAliveCrew();
+			}
 
+			if (game.CurrentAliveCrew() > 0)
+			{
+				game.IncreaseCargoValue(collected_scrap);
+			}
+			else
+			{
+				game.AllEmployeesDead();
 			}
 		}
 	}
