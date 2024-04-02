@@ -53,17 +53,27 @@ void Game::InitaliseNewGame()
 	std::cout << "temp: " << temp << std::endl;
 
 	moonManager.ViewMoons();
+	
+	current_orbit_moon = moonManager.GetMoon("Prototyping");
 
-	AbstractMoon* tempProto = moonManager.GetMoon("Prototyping");
-
-	tempProto->SendEmployees(*this, 3);
+	current_orbit_moon->SendEmployees(*this, 3);
 
 	std::cout << "money " << current_cargo_value << std::endl;
 
-	tempProto->ChooseWeatherCondition(0.5f);
+	current_orbit_moon->ChooseWeatherCondition(0.5f);
 
 	moonManager.ViewMoons();
 
+}
+
+void Game::InOrbit()
+{
+	std::cout << "empty" << std::endl;
+}
+
+void Game::LandedOnMoon()
+{
+	std::cout << "empty" << std::endl;
 }
 
 //defines the items and adds them to the hashmap
@@ -115,6 +125,10 @@ void Game::IncreaseCargoValue(int scrap)
 void Game::AllEmployeesDead()
 {
 	current_cargo_value = 0;
+	std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+	std::cout << "All the employees died and the scrap is lost.";
+	std::cout << "Autopilot will now bring the ship back to orbit.";
+	std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
 }
 
 //ends the game

@@ -2,6 +2,7 @@
 #define GAME
 #include "MoonManager.h"
 #include "ItemManager.h"
+#include "AbstractMoon.h"
 #include "util.h"
 
 #include <vector>
@@ -16,6 +17,12 @@ public:
 
 	//the initaliser function that calls all the other functions
 	void InitaliseNewGame();
+
+	//handles all of the store and menuing while in orbit
+	void InOrbit();
+
+	//handles all of the gameplay for when a player is landed on a moon
+	void LandedOnMoon();
 
 	//defines the items and adds them to the hashmap
 	void DefineItems();
@@ -50,8 +57,8 @@ private:
 	int quota = 150;
 	int current_alive_crew = 4;
 
-	
-	//landed moon variable
+	//the reference to the currently orbited moon
+	AbstractMoon* current_orbit_moon;
 
 	//simulation parameters
 	//instance of item manager

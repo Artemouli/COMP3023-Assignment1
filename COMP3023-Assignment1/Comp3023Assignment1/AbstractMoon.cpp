@@ -137,15 +137,11 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		//if all the exploring employees have died
 		else if (alive_exploring == 0)
 		{
-			//if operator survives
-			if (game.CurrentAliveCrew() > 0)
-			{
-				std::cout << "None of the employees managed to make it back. " << game.CurrentAliveCrew() << " employee left." << std::endl;
-			}
-			//if operator dies
-			else
-			{
+			std::cout << "None of the employees managed to make it back. " << game.CurrentAliveCrew() << " employees left." << std::endl;
 
+			if (game.CurrentAliveCrew() == 0)
+			{
+				game.AllEmployeesDead();
 			}
 		}
 	}
