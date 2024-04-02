@@ -1,5 +1,6 @@
 #include "Corporation.h"
 #include "AbstractMoon.h"
+#include "Game.h"
 
 #include <iostream>
 #include <memory>
@@ -22,5 +23,5 @@ void Corporation::SendEmployees(Game& game, int employee_count)
 
 void Corporation::SellCargo(Game& game, int amount)
 {
-	std::cout << "empty" << std::endl;
+	game.IncreaseBalance(amount);
 }

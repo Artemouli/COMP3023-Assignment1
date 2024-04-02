@@ -46,6 +46,10 @@ public:
 
 	//used to increase amount of current cargo value
 	void IncreaseCargoValue(int scrap);
+
+	//used to increase balance and print the text
+	void IncreaseBalance(int value);
+
 	//used when all of the employees have died
 	void AllEmployeesDead();
 

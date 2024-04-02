@@ -1,6 +1,7 @@
 #ifndef CORPORATION
 #define CORPORATION
 #include "AbstractMoon.h"
+class Game;
 
 class Corporation : public AbstractMoon
 {

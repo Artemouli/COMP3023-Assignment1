@@ -67,6 +67,9 @@ void Game::InitaliseNewGame()
 
 	moon_manager.ViewMoons(); 
 
+	current_orbit_moon = moon_manager.GetMoon("Corporation");
+
+	current_orbit_moon->SellCargo(*this, current_cargo_value);
 }
 
 void Game::InOrbit()
@@ -125,6 +128,13 @@ int Game::CurrentAliveCrew()
 void Game::IncreaseCargoValue(int scrap)
 {
 	current_cargo_value = current_cargo_value + scrap;
+}
+
+void Game::IncreaseBalance(int value)
+{
+	std::cout << "Your service is invaluable to the corporation." << std::endl;
+	balance = balance + value;
+	std::cout << "New balance: $" << balance << "(quota is $" << quota << ")" << std::endl;
 }
 
 void Game::AllEmployeesDead()
