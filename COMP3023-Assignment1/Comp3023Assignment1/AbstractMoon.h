@@ -31,8 +31,8 @@ public:
 	};
 
 	//takes in a random number to decide the weather condition
-	//random number should be between 0 and 100 to reflect percentage change %
-	virtual void ChooseWeatherCondition(int ranNum);
+	//random number should be between 0 and 1 to reflect percentage change %
+	virtual void ChooseWeatherCondition(float ranNum);
 	
 	//returns the current weather condition as a string for printing
 	virtual std::string GetWeatherCondition() const 

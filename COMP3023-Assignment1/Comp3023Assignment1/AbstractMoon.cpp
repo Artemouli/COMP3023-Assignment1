@@ -3,20 +3,20 @@
 
 #include <iostream>
 
-void AbstractMoon::ChooseWeatherCondition(int ranNum)
+void AbstractMoon::ChooseWeatherCondition(float ranNum)
 {
 	//clear weather
-	if (ranNum < 25)
+	if (ranNum < 0.25f)
 	{
 		weather_condition = AbstractMoon::WeatherCondition::Clear;
 	}
 	//flooded weather
-	else if (ranNum > 25 && ranNum < 50)
+	else if (ranNum > 0.25f && ranNum < 0.50f)
 	{
 		weather_condition = AbstractMoon::WeatherCondition::Flooded;
 	}
 	//Eclipsed
-	else if (ranNum > 50 && ranNum < 75)
+	else if (ranNum > 0.50f && ranNum < 0.75f)
 	{
 		weather_condition = AbstractMoon::WeatherCondition::Eclipsed;
 	}
@@ -29,7 +29,7 @@ void AbstractMoon::ChooseWeatherCondition(int ranNum)
 
 void AbstractMoon::OnDayBegins(Game& game)
 {
-	std::cout << "empty" << std::endl;
+	ChooseWeatherCondition(game.GenerateNum())
 }
 
 void AbstractMoon::SendEmployees(Game& game, int employee_count)
