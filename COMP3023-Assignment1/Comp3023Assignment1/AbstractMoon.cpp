@@ -29,7 +29,7 @@ void AbstractMoon::ChooseWeatherCondition(int ranNum)
 
 void AbstractMoon::OnDayBegins(Game& game)
 {
-
+	std::cout << "empty" << std::endl;
 }
 
 void AbstractMoon::SendEmployees(Game& game, int employee_count)
@@ -37,7 +37,7 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 	if (employee_count > 0)
 	{
 		float temp_explorer_survival_chance = base_explorer_survival_chance;
-		float temp_operator_survival_chance = 1;
+		float temp_operator_survival_chance = 100;
 		//is temporaly a float for multiplications
 		//scrap value will be converted to int when calculated
 		float temp_min_scrap = min_scrap;
@@ -86,7 +86,28 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		//system parameter calculations 
 		for (int i = 0; i < employee_count; i++)
 		{
-			
+			//collected scrap
+			int collected_scrap = game.GenerateNum(static_cast<int>(temp_min_scrap), static_cast<int>(temp_max_scrap));
+			//if explorer died 
+			if (game.GenerateNum() > temp_explorer_survival_chance)
+			{
+				//if explorer is saved
+				if (game.GenerateNum() < explorer_save_chance)
+				{
+					//drop collected scrap
+					collected_scrap = 0;
+				}
+				//if explorer isnt saved
+				else
+				{
+					game.DecreaseAliveCrew();
+				}
+
+			}
 		}
+	}
+	else
+	{
+		std::cout << "At least one employee must be sent." << std::endl;
 	}
 }

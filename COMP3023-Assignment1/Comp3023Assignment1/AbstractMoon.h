@@ -75,7 +75,7 @@ public:
 private:
 	std::string moon_name;
 	float base_explorer_survival_chance;
-	float loot_recov_chance = 0.5f;
+	float loot_recov_chance = 0.5;
 	int min_scrap;
 	int max_scrap;
 	WeatherCondition weather_condition;
