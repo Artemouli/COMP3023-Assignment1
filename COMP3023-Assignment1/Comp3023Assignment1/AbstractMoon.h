@@ -5,6 +5,13 @@ class Game;
 #ifndef ABSTRACT_MOON
 #define ABSTRACT_MOON
 
+//Weather condition enum
+enum class WeatherCondition {
+	Clear = 0, //no effect
+	Flooded, //multiply explorer survival chance by 0.7
+	Eclipsed, //multiply explorer survival chance by 0.9 and operator survival chance by 0.7
+	Stormy //multiply scrap value multiplier by 0.75
+};
 
 class AbstractMoon {
 public:
@@ -12,7 +19,8 @@ public:
 		moon_name(new_name),
 		base_explorer_survival_chance(new_survival_chance),
 		min_scrap(min),
-		max_scrap(max) {};
+		max_scrap(max),
+		weather_condition(WeatherCondition::Clear) {};
 
 	virtual const std::string GetName() const {
 		return moon_name;
@@ -25,13 +33,6 @@ public:
 		std::cout << "" << std::endl;
 	};
 
-	//Weather condition enum
-	enum class WeatherCondition {
-		Clear = 0, //no effect
-		Flooded, //multiply explorer survival chance by 0.7
-		Eclipsed, //multiply explorer survival chance by 0.9 and operator survival chance by 0.7
-		Stormy //multiply scrap value multiplier by 0.75
-	};
 
 	//takes in a random number to decide the weather condition
 	//random number should be between 0 and 1 to reflect percentage change %

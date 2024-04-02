@@ -39,25 +39,25 @@ void Game::InitaliseNewGame()
 	//TODO: set current orbiting moon to corporation
 	current_orbit_moon = moon_manager.GetMoon("Corporation");
 
-	InOrbit();
+	//InOrbit();
 
 	//testing code
-	/*std::cout << "after defining" << std::endl;
+	std::cout << "after defining" << std::endl;
 
-	itemManager.Store();
+	item_manager.Store();
 
-	itemManager.Buy("Flashlight");
-	itemManager.Store();
+	item_manager.Buy("Flashlight");
+	item_manager.Store();
 
 	float temp = 0.5f;
 	std::string s_temp = "explorer";
 	std::cout << "temp: " << temp << std::endl;
-	temp = itemManager.ApplyMulti(temp, s_temp);
+	temp = item_manager.ApplyMulti(temp, s_temp);
 	std::cout << "temp: " << temp << std::endl;
 
-	moonManager.ViewMoons();
+	moon_manager.ViewMoons();
 	
-	current_orbit_moon = moonManager.GetMoon("Prototyping");
+	current_orbit_moon = moon_manager.GetMoon("Prototyping");
 
 	current_orbit_moon->SendEmployees(*this, 3);
 
@@ -65,7 +65,7 @@ void Game::InitaliseNewGame()
 
 	current_orbit_moon->ChooseWeatherCondition(0.5f);
 
-	moonManager.ViewMoons(); */
+	moon_manager.ViewMoons(); 
 
 }
 

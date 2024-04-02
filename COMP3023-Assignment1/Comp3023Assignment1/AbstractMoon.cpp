@@ -9,22 +9,23 @@ void AbstractMoon::ChooseWeatherCondition(float ranNum)
 	//clear weather
 	if (ranNum <= 0.25f)
 	{
-		weather_condition = AbstractMoon::WeatherCondition::Clear;
+		//weather_condition = AbstractMoon::WeatherCondition::Clear;
+		weather_condition = WeatherCondition::Clear;
 	}
 	//flooded weather
 	else if (ranNum > 0.25f && ranNum <= 0.50f)
 	{
-		weather_condition = AbstractMoon::WeatherCondition::Flooded;
+		weather_condition = WeatherCondition::Flooded;
 	}
 	//Eclipsed
 	else if (ranNum > 0.50f && ranNum <= 0.75f)
 	{
-		weather_condition = AbstractMoon::WeatherCondition::Eclipsed;
+		weather_condition = WeatherCondition::Eclipsed;
 	}
 	//Stormy
 	else
 	{
-		weather_condition = AbstractMoon::WeatherCondition::Stormy;
+		weather_condition = WeatherCondition::Stormy;
 	}
 }
 

@@ -15,3 +15,17 @@
 1	1605	7337424465102714	CMakeFiles/Comp3023Assignment1.dir/Comp3023Assignment1.cpp.obj	8c56be82547074bb
 1	776	7337424844686516	CMakeFiles/Comp3023Assignment1.dir/Corporation.cpp.obj	885a0cb72631f915
 776	1109	7337424847911388	Comp3023Assignment1.exe	a6c5c9bb40fcf189
+5	1454	7337428632982977	CMakeFiles/Comp3023Assignment1.dir/Comp3023Assignment1.cpp.obj	8c56be82547074bb
+20	1458	7337428632942972	CMakeFiles/Comp3023Assignment1.dir/Prototyping.cpp.obj	2501ea00487b4501
+24	1464	7337428632962960	CMakeFiles/Comp3023Assignment1.dir/MoonManager.cpp.obj	a931a0b6b7291ab6
+29	1468	7337428633058164	CMakeFiles/Comp3023Assignment1.dir/Corporation.cpp.obj	885a0cb72631f915
+0	1536	7337428633862660	CMakeFiles/Comp3023Assignment1.dir/Game.cpp.obj	f9ff06ea9cca2482
+12	1560	7337428634129768	CMakeFiles/Comp3023Assignment1.dir/AbstractMoon.cpp.obj	aa0b801bb4afdcff
+1560	1823	7337428636430933	Comp3023Assignment1.exe	a6c5c9bb40fcf189
+1	1922	7337431951750377	CMakeFiles/Comp3023Assignment1.dir/Comp3023Assignment1.cpp.obj	8c56be82547074bb
+7	1926	7337431951810397	CMakeFiles/Comp3023Assignment1.dir/Game.cpp.obj	f9ff06ea9cca2482
+29	1929	7337431951770396	CMakeFiles/Comp3023Assignment1.dir/MoonManager.cpp.obj	a931a0b6b7291ab6
+20	1933	7337431951870420	CMakeFiles/Comp3023Assignment1.dir/Corporation.cpp.obj	885a0cb72631f915
+24	1935	7337431951810397	CMakeFiles/Comp3023Assignment1.dir/Prototyping.cpp.obj	2501ea00487b4501
+1	1172	7337432510737433	CMakeFiles/Comp3023Assignment1.dir/AbstractMoon.cpp.obj	aa0b801bb4afdcff
+1173	1391	7337432512569460	Comp3023Assignment1.exe	a6c5c9bb40fcf189
