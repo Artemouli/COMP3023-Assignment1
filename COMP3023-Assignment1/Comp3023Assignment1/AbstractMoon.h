@@ -64,7 +64,10 @@ public:
 
 	//this only works on corporation moon
 	//this method is overridden by the corporation moon
-	virtual void SellCargo(Game& game, int amount) = 0;
+	virtual void SellCargo(Game& game, int amount)
+	{
+		std::cout << "cannot sell on this moon" << std::endl;
+	};
 	
 	virtual void OnDayBegins(Game& game);
 

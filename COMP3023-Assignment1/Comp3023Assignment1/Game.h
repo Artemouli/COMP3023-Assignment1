@@ -22,7 +22,7 @@ public:
 	void InOrbit();
 
 	//handles all of the gameplay for when a player is landed on a moon
-	void LandedOnMoon();
+	void LandedMoon();
 
 	//defines the items and adds them to the hashmap
 	void DefineItems();
@@ -62,11 +62,11 @@ private:
 
 	//simulation parameters
 	//instance of item manager
-	ItemManager itemManager;
+	ItemManager item_manager;
 	// instance of moon manager
-	MoonManager moonManager;
+	MoonManager moon_manager;
 	//instance of num generator
-	std::mt19937 numGenerator;
+	std::mt19937 num_generator;
 };
 
 

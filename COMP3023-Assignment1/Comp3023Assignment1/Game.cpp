@@ -9,6 +9,7 @@
 #include "MoonManager.h"
 
 #include "Prototyping.h"
+#include "Corporation.h"
 
 #include "util.h"
 #include "AbstractMoon.h"
@@ -32,14 +33,16 @@ void Game::InitaliseNewGame()
 	quota = 150;
 	current_alive_crew = 4;
 
-	//TODO: set current orbiting moon to corporation
 	DefineMoons();
-
-
 	DefineItems();
 	
+	//TODO: set current orbiting moon to corporation
+	current_orbit_moon = moon_manager.GetMoon("Corporation");
 
-	std::cout << "after defining" << std::endl;
+	InOrbit();
+
+	//testing code
+	/*std::cout << "after defining" << std::endl;
 
 	itemManager.Store();
 
@@ -62,7 +65,7 @@ void Game::InitaliseNewGame()
 
 	current_orbit_moon->ChooseWeatherCondition(0.5f);
 
-	moonManager.ViewMoons();
+	moonManager.ViewMoons(); */
 
 }
 
@@ -71,7 +74,7 @@ void Game::InOrbit()
 	std::cout << "empty" << std::endl;
 }
 
-void Game::LandedOnMoon()
+void Game::LandedMoon()
 {
 	std::cout << "empty" << std::endl;
 }
@@ -81,19 +84,21 @@ void Game::DefineItems()
 {
 	//creates the flashlight object and then calls itemManager
 	Flashlight* flashlight = new Flashlight();
-	itemManager.RegisterItem(flashlight);
+	item_manager.RegisterItem(flashlight);
 }
 
 //defines the moon and adds them to the hashmap
 void Game::DefineMoons()
 {
+	Corporation* corporation = new Corporation();
+	moon_manager.RegisterMoon(corporation);
 	Prototyping* prototyping = new Prototyping();
-	moonManager.RegisterMoon(prototyping);
+	moon_manager.RegisterMoon(prototyping);
 }
 
 float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_name)
 {
-	return itemManager.ApplyMulti(parameter_chance, parameter_name);
+	return item_manager.ApplyMulti(parameter_chance, parameter_name);
 }
 
 //used for generating a number that AbstractMoon can use
@@ -101,10 +106,10 @@ float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_
 float Game::GenerateNum(float min, float max)
 {
 	//instance of random num generator is instantiated
-	std::mt19937 numGenerator(std::random_device{}());
+	std::mt19937 num_generator(std::random_device{}());
 	//std::uniform_int_distribution<int> dist(min, max);
 	std::uniform_real_distribution<float> dist(min, max);
-	return dist(numGenerator);
+	return dist(num_generator);
 }
 
 void Game::DecreaseAliveCrew()
@@ -134,7 +139,8 @@ void Game::AllEmployeesDead()
 //ends the game
 void Game::EndGame()
 {
-	//for loop here to delete the items in useableItems
-	itemManager.DeleteItems();
+	//for loop here to delete the items and moons
+	item_manager.DeleteItems();
+	moon_manager.DeleteMoons();
 }
 
