@@ -27,3 +27,16 @@ void MoonManager::DeleteMoons()
 {
 	moons.clear();
 }
+
+AbstractMoon* MoonManager::GetMoon(std::string moon_name)
+{
+	if (moons.count(moon_name) > 0)
+	{
+		return moons.at(moon_name);
+	}
+	//if the moon_name does not exist
+	else
+	{
+		return nullptr;
+	}
+}

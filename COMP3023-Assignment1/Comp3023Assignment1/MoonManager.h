@@ -13,6 +13,8 @@ public:
 
 	void DeleteMoons();
 
+	AbstractMoon* GetMoon(std::string moon_name);
+
 
 private:
 	//keeps track of the moons

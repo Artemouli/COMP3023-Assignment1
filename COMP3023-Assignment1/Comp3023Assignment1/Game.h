@@ -30,12 +30,12 @@ public:
 	float ApplyItemManagerMulti(float parameter_chance, std::string parameter_name);
 
 	//used to generate a number
-	float GenerateNum(int min = 0, int max = 1);
+	float GenerateNum(float min = 0.0f, float max = 0.0f);
 
 	//used to decrease amount of alive crew
 	void DecreaseAliveCrew();
 	//used to get current amount of alive crew
-	int* CurrentAliveCrew();
+	int CurrentAliveCrew();
 
 	//used to increase amount of current cargo value
 	void IncreaseCargoValue(int scrap);

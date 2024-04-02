@@ -45,12 +45,19 @@ void Game::InitaliseNewGame()
 	itemManager.Buy("Flashlight");
 	itemManager.Store();
 
-	float temp = 50;
+	float temp = 0.5f;
 	std::string s_temp = "explorer";
 	std::cout << "temp: " << temp << std::endl;
 	temp = itemManager.ApplyMulti(temp, s_temp);
 	std::cout << "temp: " << temp << std::endl;
 
+	moonManager.ViewMoons();
+
+	AbstractMoon* tempProto = moonManager.GetMoon("Prototyping");
+
+	tempProto->ChooseWeatherCondition(0.5f);
+
+	moonManager.ViewMoons();
 
 }
 
@@ -76,7 +83,7 @@ float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_
 
 //used for generating a number that AbstractMoon can use
 //default values for calling to get typical percentage chance
-float Game::GenerateNum(int min = 0, int max = 1)
+float Game::GenerateNum(float min, float max)
 {
 	//instance of random num generator is instantiated
 	std::mt19937 numGenerator(std::random_device{}());
@@ -90,9 +97,9 @@ void Game::DecreaseAliveCrew()
 	current_alive_crew--;
 }
 
-int* Game::CurrentAliveCrew()
+int Game::CurrentAliveCrew()
 {
-	return &current_alive_crew;
+	return current_alive_crew;
 }
 
 void Game::IncreaseCargoValue(int scrap)

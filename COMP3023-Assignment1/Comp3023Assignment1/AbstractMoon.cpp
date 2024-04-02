@@ -7,17 +7,17 @@ void AbstractMoon::ChooseWeatherCondition(float ranNum)
 {
 
 	//clear weather
-	if (ranNum < 0.25f)
+	if (ranNum <= 0.25f)
 	{
 		weather_condition = AbstractMoon::WeatherCondition::Clear;
 	}
 	//flooded weather
-	else if (ranNum > 0.25f && ranNum < 0.50f)
+	else if (ranNum > 0.25f && ranNum <= 0.50f)
 	{
 		weather_condition = AbstractMoon::WeatherCondition::Flooded;
 	}
 	//Eclipsed
-	else if (ranNum > 0.50f && ranNum < 0.75f)
+	else if (ranNum > 0.50f && ranNum <= 0.75f)
 	{
 		weather_condition = AbstractMoon::WeatherCondition::Eclipsed;
 	}
@@ -41,11 +41,11 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		int alive_exploring = employee_count;
 
 		float temp_explorer_survival_chance = base_explorer_survival_chance;
-		float temp_operator_survival_chance = 100;
+		float temp_operator_survival_chance = 1;
 		//is temporaly a float for multiplications
 		//scrap value will be converted to int when calculated
-		float temp_min_scrap = min_scrap;
-		float temp_max_scrap = max_scrap;
+		float temp_min_scrap = static_cast<float>(min_scrap);
+		float temp_max_scrap = static_cast<float>(max_scrap);
 
 		float explorer_save_chance = 0;
 
@@ -91,7 +91,7 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		for (int i = 1; i < employee_count; i++)
 		{
 			//collected scrap
-			int collected_scrap = game.GenerateNum(static_cast<int>(temp_min_scrap), static_cast<int>(temp_max_scrap));
+			int collected_scrap = static_cast<int>(game.GenerateNum(temp_min_scrap, temp_max_scrap));
 			//if explorer died 
 			if (game.GenerateNum() > temp_explorer_survival_chance)
 			{
