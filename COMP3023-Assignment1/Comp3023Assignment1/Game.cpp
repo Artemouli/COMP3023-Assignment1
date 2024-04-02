@@ -39,10 +39,21 @@ void Game::InitaliseNewGame()
 	//TODO: set current orbiting moon to corporation
 	current_orbit_moon = moon_manager.GetMoon("Corporation");
 
-	//InOrbit();
+	std::cout << \
+		"    ___               _ _           ___                 \n" \
+		"   /   \\___  __ _  __| | |_   _    / __\\___  _ __ _ __  \n" \
+		"  / /\\ / _ \\/ _` |/ _` | | | | |  / /  / _ \\| '__| '_ \\ \n" \
+		" / /_//  __/ (_| | (_| | | |_| | / /__| (_) | |  | |_) |\n" \
+		"/___,' \\___|\\__,_|\\__,_|_|\\__, | \\____/\\___/|_|  | .__/ \n" \
+		"                          |___/                  |_|    " << std::endl;
+
+	std::cout << "Welcome!" << std::endl;
+	std::cout << "We trust that you will be a great asset to the corporation!" << std::endl;
+
+	InOrbit();
 
 	//testing code
-	std::cout << "after defining" << std::endl;
+	/*std::cout << "after defining" << std::endl;
 
 	item_manager.Store();
 
@@ -69,12 +80,34 @@ void Game::InitaliseNewGame()
 
 	current_orbit_moon = moon_manager.GetMoon("Corporation");
 
-	current_orbit_moon->SellCargo(*this, current_cargo_value);
+	current_orbit_moon->SellCargo(*this, current_cargo_value); */
 }
 
 void Game::InOrbit()
 {
-	std::cout << "empty" << std::endl;
+	std::cout << "============= " << "DAY " << total_days << " =============" << std::endl;
+	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
+	std::cout << "Current balance: $" << balance << std::endl;
+	std::cout << "Current quota: $" << quota << " (" << current_day << " days left to meet quota)" << std::endl;
+	std::cout << "Currently orbiting: " << current_orbit_moon->GetName() << std::endl;
+	
+	//space
+	std::cout << std::endl;
+	std::cout << ">MOONS" << std::endl;
+	std::cout << "To see the list of moons the autopilot can route to." << std::endl;
+
+	std::cout << std::endl;
+	std::cout << ">STORE" << std::endl;
+	std::cout << "To see the company store's selection of useful items." << std::endl;
+
+	std::cout << std::endl;
+	std::cout << ">INVENTORY" << std::endl;
+	std::cout << "To see the list of items you've already bought." << std::endl;
+
+	std::cout << std::endl;
+	std::string user_input;
+	std::cout << "> ";
+	std::cin >> user_input;
 }
 
 void Game::LandedMoon()

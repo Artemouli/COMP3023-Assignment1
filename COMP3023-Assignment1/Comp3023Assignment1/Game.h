@@ -55,8 +55,8 @@ public:
 
 private:
 	int balance = 50;
-	int total_days = 0;
-	int current_day = 0;
+	int total_days = 1;
+	int current_day = 3;
 	int current_cargo_value = 0;
 	int quota = 150;
 	int current_alive_crew = 4;
