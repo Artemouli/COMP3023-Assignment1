@@ -18,6 +18,9 @@ public:
 	//the initaliser function that calls all the other functions
 	void InitaliseNewGame();
 
+
+	//starts a new day
+	void NewDay();
 	//handles all of the store and menuing while in orbit
 	void InOrbit();
 

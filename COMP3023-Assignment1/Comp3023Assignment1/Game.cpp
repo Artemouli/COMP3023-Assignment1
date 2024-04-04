@@ -83,7 +83,7 @@ void Game::InitaliseNewGame()
 	current_orbit_moon->SellCargo(*this, current_cargo_value); */
 }
 
-void Game::InOrbit()
+void Game::NewDay()
 {
 	std::cout << "============= " << "DAY " << total_days << " =============" << std::endl;
 	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
@@ -104,10 +104,33 @@ void Game::InOrbit()
 	std::cout << ">INVENTORY" << std::endl;
 	std::cout << "To see the list of items you've already bought." << std::endl;
 
+	InOrbit();
+}
+
+void Game::InOrbit()
+{
 	std::cout << std::endl;
 	std::string user_input;
 	std::cout << "> ";
-	std::cin >> user_input;
+	std::getline(std::cin, user_input);
+	util::lower(user_input);
+	std::vector<std::string> args;
+	util::splitArguments(user_input, args);
+
+	//handle moon input
+	if (user_input == "moons" || user_input == "route")
+	{
+
+	}
+	//handle store input
+	else if (user_input == "store" || user_input == "buy" || user_input == "sell")
+	{
+
+	}
+	else if (user_input == "inventory")
+	{
+
+	}
 }
 
 void Game::LandedMoon()
