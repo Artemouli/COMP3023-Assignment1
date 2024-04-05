@@ -49,6 +49,7 @@ void Game::InitaliseNewGame()
 
 	std::cout << "Welcome!" << std::endl;
 	std::cout << "We trust that you will be a great asset to the corporation!" << std::endl;
+	std::cout << std::endl;
 
 	NewDay();
 
@@ -177,9 +178,15 @@ void Game::InOrbit()
 			}
 			else
 			{
-				
-				item_manager.Buy(args.at(0));
-				std::cout << "Your balance is now $" << balance << std::endl;
+				if (balance >= item_manager.getItemPrice(args.at(0)))
+				{
+					item_manager.Buy(args.at(0));
+					std::cout << "Your balance is now $" << balance << std::endl;
+				}
+				else
+				{
+					std::cout << "You don't have enough funds to buy this item." << std::endl;
+				}
 			}
 		}
 		else if (user_input == "sell")
@@ -195,6 +202,10 @@ void Game::InOrbit()
 		std::cout << "Cargo value: $" << current_cargo_value << std::endl;
 		InOrbit();
 	}
+	else if (user_input == "land")
+	{
+		LandedMoon();
+	}
 	else
 	{
 		std::cout << "Unknown command." << std::endl;
@@ -204,7 +215,14 @@ void Game::InOrbit()
 
 void Game::LandedMoon()
 {
-	std::cout << "empty" << std::endl;
+	std::cout << std::endl;
+	std::cout << "WELCOME TO " << current_orbit_moon->GetName() << "!" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
+	std::cout << "Current balance: $" << balance << std::endl;
+	std::cout << "Current quota: $" << quota << " (" << current_day << " days left to meet quota)" << std::endl;
+	std::cout << "Number of employees: " << current_alive_crew << std::endl;
+
 }
 
 //defines the items and adds them to the hashmap
