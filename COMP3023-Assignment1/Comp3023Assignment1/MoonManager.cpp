@@ -1,11 +1,15 @@
 #include "MoonManager.h"
 #include "AbstractMoon.h"
+#include "util.h"
 
 #include <iostream>
 
 void MoonManager::RegisterMoon(AbstractMoon* newMoon)
 {
-	moons.insert({ newMoon->GetName(), newMoon });
+	//temp name is used so that the key is an all lowercase version of the moon name
+	std::string temp_name = newMoon->GetName();
+	util::lower(temp_name);
+	moons.insert({ temp_name, newMoon});
 }
 
 void MoonManager::ViewMoons()

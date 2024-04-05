@@ -13,7 +13,7 @@ Corporation::Corporation(std::string new_name, float new_survival_chance, int mi
 //ensures that corporation is always clear
 void Corporation::OnDayBegins(Game& game)
 {
-	ChooseWeatherCondition(0);
+	auto weather_condition = WeatherCondition::Clear;
 }
 
 void Corporation::SendEmployees(Game& game, int employee_count)
