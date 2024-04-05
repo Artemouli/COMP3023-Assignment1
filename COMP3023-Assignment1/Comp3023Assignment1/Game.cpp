@@ -37,7 +37,7 @@ void Game::InitaliseNewGame()
 	DefineItems();
 	
 	//TODO: set current orbiting moon to corporation
-	current_orbit_moon = moon_manager.GetMoon("Corporation");
+	current_orbit_moon = moon_manager.GetMoon("corporation");
 
 	std::cout << \
 		"    ___               _ _           ___                 \n" \
@@ -50,7 +50,7 @@ void Game::InitaliseNewGame()
 	std::cout << "Welcome!" << std::endl;
 	std::cout << "We trust that you will be a great asset to the corporation!" << std::endl;
 
-	InOrbit();
+	NewDay();
 
 	//testing code
 	/*std::cout << "after defining" << std::endl;
@@ -120,6 +120,41 @@ void Game::InOrbit()
 	//handle moon input
 	if (user_input == "moons" || user_input == "route")
 	{
+		if (user_input == "moons")
+		{
+			std::cout << "Welcome to the exomoons catalogue." << std::endl;
+			std::cout << "To route the autopilot to a moon, use the word ROUTE." << std::endl;
+			std::cout << "---------------------------------------" << std::endl;
+			moon_manager.ViewMoons();
+		}
+		else if (user_input == "route")
+		{
+			//check if there are more arguments 
+			//e.g. "route corporation fun" wouldnt work because of the extra words after the moon name
+			if (args.size() > 1)
+			{
+				std::cout << "Bad command; the syntax is : " << "\"route moonName\"" << std::endl;
+			}
+			else
+			{
+				//check if is currently orbiting moon
+				if (current_orbit_moon->GetName() == args.at(0))
+				{
+					std::cout << "Already orbiting " << current_orbit_moon->GetName() << std::endl;
+				}
+				//if not and is not a nullptr
+				else if (moon_manager.GetMoon(args.at(0)) != nullptr)
+				{
+
+				}
+				//if is a nullptr
+				else
+				{
+					std::cout << "Unknown moon " << "\"" << args.at(0) << "\"." << std::endl;
+				}
+			}
+		}
+		InOrbit();
 
 	}
 	//handle store input
@@ -130,6 +165,11 @@ void Game::InOrbit()
 	else if (user_input == "inventory")
 	{
 
+	}
+	else
+	{
+		std::cout << "Unknown command." << std::endl;
+		InOrbit();
 	}
 }
 
