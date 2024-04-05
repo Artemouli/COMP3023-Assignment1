@@ -70,12 +70,12 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		temp_loot_recov = game.ApplyItemManagerMulti(temp_loot_recov, "loot");
 
 		//system parameter calculations 
-		for (int i = 1; i < employee_count; i++)
+		for (int i = 1; i <= employee_count; i++)
 		{
 			//collected scrap
 			int collected_scrap = static_cast<int>(game.GenerateNum(temp_min_scrap, temp_max_scrap));
 			//if explorer died 
-			if (game.GenerateNum() > temp_explorer_survival_chance)
+			if (game.GenerateNum() < temp_explorer_survival_chance)
 			{
 				//if explorer is saved
 				if (game.GenerateNum() < explorer_save_chance)

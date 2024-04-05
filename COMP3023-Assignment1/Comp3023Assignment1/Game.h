@@ -40,7 +40,7 @@ public:
 	float ApplyItemManagerMulti(float parameter_chance, std::string parameter_name);
 
 	//used to generate a number
-	float GenerateNum(float min = 0.0f, float max = 0.0f);
+	float GenerateNum(float min = 0.0f, float max = 1.0f);
 
 	//used to decrease amount of alive crew
 	void DecreaseAliveCrew();
