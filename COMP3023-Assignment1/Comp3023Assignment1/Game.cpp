@@ -116,6 +116,7 @@ void Game::InOrbit()
 	util::lower(user_input);
 	std::vector<std::string> args;
 	util::splitArguments(user_input, args);
+	std::cout << std::endl;
 
 	//handle moon input
 	if (user_input == "moons" || user_input == "route")
@@ -167,6 +168,23 @@ void Game::InOrbit()
 		if (user_input == "store")
 		{
 			item_manager.Store();
+		}
+		else if (user_input == "buy")
+		{
+			if (args.size() > 1)
+			{
+				std::cout << "Bad command; the syntax is : " << "\"buy itemName\"" << std::endl;
+			}
+			else
+			{
+				
+				item_manager.Buy(args.at(0));
+				std::cout << "Your balance is now $" << balance << std::endl;
+			}
+		}
+		else if (user_input == "sell")
+		{
+
 		}
 		InOrbit();
 	}

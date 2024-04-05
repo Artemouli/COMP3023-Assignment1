@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "ItemManager.h"
+#include "util.h"
 
 void ItemManager::Store()
 {
@@ -48,7 +49,9 @@ void ItemManager::Inventory()
 
 void ItemManager::RegisterItem(AbstractItem* new_item)
 {
-	items.insert({new_item->GetName(), new_item});
+	std::string temp_name = new_item->GetName();
+	util::lower(temp_name);
+	items.insert({temp_name, new_item});
 }
 
 void ItemManager::DeleteItems()
@@ -64,11 +67,19 @@ void ItemManager::Buy(std::string buy_item_name)
 	//prevents crashing
 	if (items.count(buy_item_name) > 0)
 	{
-		items.at(buy_item_name)->IsBought();
+		if (items.at(buy_item_name)->GetBought() == true)
+		{
+			std::cout << "You already own a " << items.at(buy_item_name)->GetName() << "." << std::endl;
+		}
+		else
+		{
+			items.at(buy_item_name)->IsBought();
+			std::cout << "Successfully bought " << items.at(buy_item_name)->GetName() << "." << std::endl;
+		}
 	}
 	else
 	{
-		std::cout << "Item could not be found" << std::endl;
+		std::cout << "Unknown item " << "\"" << buy_item_name << "\"" << "." << std::endl;
 	}
 }
 

@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "AbstractItem.h"
+#include "util.h"
 
 #ifndef ITEMMANAGER
 #define ITEMMANAGER
