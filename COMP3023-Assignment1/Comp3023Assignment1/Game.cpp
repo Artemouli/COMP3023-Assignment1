@@ -137,15 +137,19 @@ void Game::InOrbit()
 			}
 			else
 			{
+				//this string is used for checking if the currently orbiting moon is the same as the input
+				std::string current_moon_name = current_orbit_moon->GetName();
+				util::lower(current_moon_name);
 				//check if is currently orbiting moon
-				if (current_orbit_moon->GetName() == args.at(0))
+				if (current_moon_name == args.at(0))
 				{
 					std::cout << "Already orbiting " << current_orbit_moon->GetName() << std::endl;
 				}
 				//if not and is not a nullptr
 				else if (moon_manager.GetMoon(args.at(0)) != nullptr)
 				{
-
+					current_orbit_moon = moon_manager.GetMoon(args.at(0));
+					std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
 				}
 				//if is a nullptr
 				else
