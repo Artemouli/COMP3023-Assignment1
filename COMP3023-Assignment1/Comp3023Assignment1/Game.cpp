@@ -215,6 +215,9 @@ void Game::InOrbit()
 
 void Game::LandedMoon()
 {
+	//keeps while loop running until player enters leave command
+	bool leave = false;
+
 	std::cout << std::endl;
 	std::cout << "WELCOME TO " << current_orbit_moon->GetName() << "!" << std::endl;
 	std::cout << std::endl;
@@ -222,7 +225,51 @@ void Game::LandedMoon()
 	std::cout << "Current balance: $" << balance << std::endl;
 	std::cout << "Current quota: $" << quota << " (" << current_day << " days left to meet quota)" << std::endl;
 	std::cout << "Number of employees: " << current_alive_crew << std::endl;
+	
+	//tutorial for corporation moon
+	if (current_orbit_moon->GetName() == "Corporation")
+	{
+		std::cout << "Type SELL to sell your cargo contents and increase your balance and achieve quota." << std::endl;
+		std::cout << "Specify the amount to sell after the SELL word to only sell a portion of your cargo." << std::endl;
+	}
+	//tutorial for all other moons
+	else
+	{
+		std::cout << "Type SEND followed by the number of employees you wish to send inside the facility. All the other employees will stay on the ship." << std::endl;
+	}
+	std::cout << "Type LEAVE to leave the planet." << std::endl;
+	
+	while (leave == false)
+	{
+		std::cout << std::endl;
+		std::string user_input;
+		std::cout << "> ";
+		std::getline(std::cin, user_input);
+		util::lower(user_input);
+		std::vector<std::string> args;
+		util::splitArguments(user_input, args);
+		std::cout << std::endl;
+		
+		if (user_input == "send")
+		{
 
+		}
+		else if (user_input == "sell")
+		{
+
+		}
+
+		else if (user_input == "leave")
+		{
+			leave = true;
+		}
+		else
+		{
+			std::cout << "Unknown command." << std::endl;
+		}
+	}
+	
+	NewDay();
 }
 
 //defines the items and adds them to the hashmap
@@ -239,6 +286,7 @@ void Game::DefineMoons()
 	Corporation* corporation = new Corporation();
 	moon_manager.RegisterMoon(corporation);
 	Prototyping* prototyping = new Prototyping();
+	prototyping->OnDayBegins(*this);
 	moon_manager.RegisterMoon(prototyping);
 }
 
