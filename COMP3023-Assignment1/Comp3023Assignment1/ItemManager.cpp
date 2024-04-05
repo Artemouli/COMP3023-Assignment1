@@ -23,6 +23,29 @@ void ItemManager::Store()
 	}
 }
 
+void ItemManager::Inventory()
+{
+	//this variable is used to check if there is atleast 1 item bought
+	bool itemBought = false;
+	std::cout << "The following items are available." << std::endl;
+	std::cout << "---------------------------------------" << std::endl;
+	std::cout << std::endl;
+	for (const auto& pair : items)
+	{
+		if (pair.second->GetBought() == true)
+		{
+			itemBought = true;
+			std::cout << "* ";
+			std::cout << pair.second->GetName();
+		}
+	}
+	//if no items have been bought
+	if (itemBought == false)
+	{
+		std::cout << "(Empty)" << std::endl;
+	}
+}
+
 void ItemManager::RegisterItem(AbstractItem* new_item)
 {
 	items.insert({new_item->GetName(), new_item});

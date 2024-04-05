@@ -164,11 +164,18 @@ void Game::InOrbit()
 	//handle store input
 	else if (user_input == "store" || user_input == "buy" || user_input == "sell")
 	{
-
+		if (user_input == "store")
+		{
+			item_manager.Store();
+		}
+		InOrbit();
 	}
 	else if (user_input == "inventory")
 	{
-
+		item_manager.Inventory();
+		std::cout << "Balance: $" << balance << " (quota is $" << quota << ")" << std::endl;
+		std::cout << "Cargo value: $" << current_cargo_value << std::endl;
+		InOrbit();
 	}
 	else
 	{
