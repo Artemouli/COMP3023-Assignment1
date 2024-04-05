@@ -62,6 +62,14 @@ void ItemManager::DeleteItems()
 	}
 }
 
+int ItemManager::getItemPrice(std::string item_name)
+{
+	if (items.count(item_name) > 0)
+	{
+		return items.at(item_name)->GetPrice();
+	}
+}
+
 void ItemManager::Buy(std::string buy_item_name)
 {
 	//prevents crashing

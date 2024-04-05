@@ -18,6 +18,9 @@ public:
 
 	void Store();
 
+	//gets the price of the item
+	int getItemPrice(std::string item_name);
+
 	//handles setting the bought and setting the multipliers
 	void Buy(std::string buy_item_name);
 
