@@ -10,7 +10,8 @@ enum class WeatherCondition {
 	Clear = 0, //no effect
 	Flooded, //multiply explorer survival chance by 0.7
 	Eclipsed, //multiply explorer survival chance by 0.9 and operator survival chance by 0.7
-	Stormy //multiply scrap value multiplier by 0.75
+	Stormy, //multiply scrap value multiplier by 0.75
+	Count //used to keep track of the maximum value of the enum
 };
 
 class AbstractMoon {
@@ -33,11 +34,6 @@ public:
 		std::cout << "" << std::endl;
 	};
 
-
-	//takes in a random number to decide the weather condition
-	//random number should be between 0 and 1 to reflect percentage change %
-	virtual void ChooseWeatherCondition(float ranNum);
-	
 	//returns the current weather condition as a string for printing
 	virtual std::string GetWeatherCondition() const 
 	{

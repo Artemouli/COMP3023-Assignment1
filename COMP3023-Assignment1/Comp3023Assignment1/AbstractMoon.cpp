@@ -3,35 +3,11 @@
 
 #include <iostream>
 
-void AbstractMoon::ChooseWeatherCondition(float ranNum)
-{
-
-	//clear weather
-	if (ranNum <= 0.25f)
-	{
-		//weather_condition = AbstractMoon::WeatherCondition::Clear;
-		weather_condition = WeatherCondition::Clear;
-	}
-	//flooded weather
-	else if (ranNum > 0.25f && ranNum <= 0.50f)
-	{
-		weather_condition = WeatherCondition::Flooded;
-	}
-	//Eclipsed
-	else if (ranNum > 0.50f && ranNum <= 0.75f)
-	{
-		weather_condition = WeatherCondition::Eclipsed;
-	}
-	//Stormy
-	else
-	{
-		weather_condition = WeatherCondition::Stormy;
-	}
-}
 
 void AbstractMoon::OnDayBegins(Game& game)
 {
-	ChooseWeatherCondition(game.GenerateNum());
+	//generateNum will only be able to generate a number between 0 and the maximum value (which is count)
+	auto weather_conditon = static_cast<WeatherCondition>(game.GenerateNum(0, static_cast<int>(WeatherCondition::Count)));
 }
 
 void AbstractMoon::SendEmployees(Game& game, int employee_count)
