@@ -252,7 +252,30 @@ void Game::LandedMoon()
 		
 		if (user_input == "send")
 		{
-
+			if (args.size() > 1)
+			{
+				std::cout << "Bad command; the syntax is : " << "\"send numberOfEmployees\"" << std::endl;
+			}
+			else
+			{
+				//check to ensure that the args is a valid integer
+				try {
+					//check to make sure atleast one employee is sent
+					if (std::stoi(args.at(0)) < 1)
+					{
+						std::cout << "At least one employee must be sent." << std::endl;
+					}
+					else if (std::stoi(args.at(0)) > current_alive_crew)
+					{
+						std::cout << "Only " << current_alive_crew << " employees are left." << std::endl;
+					}
+				}
+				catch (const std::invalid_argument e)
+				{
+					std::cout << "Invalid employee count " << "\"" << args.at(0) << "\"" << std::endl;
+				}
+				
+			}
 		}
 		else if (user_input == "sell")
 		{
@@ -268,7 +291,8 @@ void Game::LandedMoon()
 			std::cout << "Unknown command." << std::endl;
 		}
 	}
-	
+	std::cout << std::endl;
+
 	NewDay();
 }
 
