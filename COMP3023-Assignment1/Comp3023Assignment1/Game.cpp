@@ -269,6 +269,10 @@ void Game::LandedMoon()
 					{
 						std::cout << "Only " << current_alive_crew << " employees are left." << std::endl;
 					}
+					else
+					{
+						current_orbit_moon->SendEmployees(*this, std::stoi(args.at(0)));
+					}
 				}
 				catch (const std::invalid_argument e)
 				{
