@@ -14,6 +14,10 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 {
 	if (employee_count > 0)
 	{
+		//value that keeps track of the precision required for the system calculations
+		//e.g. explorer death
+		const float epsilon = 1e-3;
+
 		//keeps track of the number of exploring employees
 		int alive_exploring = employee_count;
 		//keeps track of the number of employees who have died 
@@ -69,13 +73,26 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 		//loot recov
 		temp_loot_recov = game.ApplyItemManagerMulti(temp_loot_recov, "loot");
 
+
+		//if there is an operator
+		if (employee_count != game.CurrentAliveCrew())
+		{
+			//check to see if the operator is killed
+			if (abs(game.GenerateNum() > temp_operator_survival_chance) > epsilon)
+			{
+				game.DecreaseAliveCrew();
+				dead_employees++;
+			}
+		}
+	
 		//system parameter calculations 
 		for (int i = 1; i <= employee_count; i++)
 		{
 			//collected scrap
 			int collected_scrap = static_cast<int>(game.GenerateNum(temp_min_scrap, temp_max_scrap));
 			//if explorer died 
-			if (game.GenerateNum() < temp_explorer_survival_chance)
+			//abs is used because of how low the floating point is 
+			if (abs(game.GenerateNum() < temp_explorer_survival_chance)  < epsilon)
 			{
 				//if explorer is saved
 				if (game.GenerateNum() < explorer_save_chance)
@@ -97,11 +114,7 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 					}
 				}
 			}
-			//check to see if the operator is killed
-			if (game.GenerateNum() > temp_operator_survival_chance)
-			{
-				game.DecreaseAliveCrew();
-			}
+			
 			
 			game.IncreaseCargoValue(collected_scrap);
 			total_scrap += collected_scrap;

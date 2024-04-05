@@ -86,6 +86,10 @@ void Game::InitaliseNewGame()
 
 void Game::NewDay()
 {
+	total_days += 1;
+	current_alive_crew = 4;
+	current_day -= 1;
+	
 	std::cout << "============= " << "DAY " << total_days << " =============" << std::endl;
 	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
 	std::cout << "Current balance: $" << balance << std::endl;
@@ -241,6 +245,12 @@ void Game::LandedMoon()
 	
 	while (leave == false)
 	{
+		if (current_alive_crew == 0)
+		{
+			leave = true;
+			NewDay();
+		}
+
 		std::cout << std::endl;
 		std::string user_input;
 		std::cout << "> ";
@@ -249,6 +259,7 @@ void Game::LandedMoon()
 		std::vector<std::string> args;
 		util::splitArguments(user_input, args);
 		std::cout << std::endl;
+
 		
 		if (user_input == "send")
 		{
