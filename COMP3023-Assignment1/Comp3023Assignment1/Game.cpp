@@ -154,8 +154,12 @@ void Game::InOrbit()
 				//if not and is not a nullptr
 				else if (moon_manager.GetMoon(args.at(0)) != nullptr)
 				{
-					current_orbit_moon = moon_manager.GetMoon(args.at(0));
-					std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
+					if (moon_manager.GetMoon(args.at(0))->GetPrice() == 0)
+					{
+						current_orbit_moon = moon_manager.GetMoon(args.at(0));
+						std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
+					}
+					
 				}
 				//if is a nullptr
 				else

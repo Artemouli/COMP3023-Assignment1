@@ -16,11 +16,12 @@ enum class WeatherCondition {
 
 class AbstractMoon {
 public:
-	AbstractMoon(std::string new_name, float new_survival_chance, int min, int max) :
+	AbstractMoon(std::string new_name, float new_survival_chance, int min, int max, int cost) :
 		moon_name(new_name),
 		base_explorer_survival_chance(new_survival_chance),
 		min_scrap(min),
 		max_scrap(max),
+		travel_cost(cost),
 		weather_condition(WeatherCondition::Clear) {};
 
 	virtual const std::string GetName() const {
@@ -71,7 +72,7 @@ public:
 	//intended to be overridden by moons which do have a price
 	virtual int GetPrice()
 	{
-		return 0;
+		return travel_cost;
 	};
 
 	virtual ~AbstractMoon() {};
@@ -81,6 +82,7 @@ private:
 	std::string moon_name;
 	float base_explorer_survival_chance;
 	float loot_recov_chance = 0.5;
+	int travel_cost = 0;
 	int min_scrap;
 	int max_scrap;
 	WeatherCondition weather_condition;
