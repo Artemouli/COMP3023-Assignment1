@@ -289,12 +289,37 @@ void Game::LandedMoon()
 				{
 					std::cout << "Invalid employee count " << "\"" << args.at(0) << "\"" << std::endl;
 				}
-				
 			}
 		}
 		else if (user_input == "sell")
 		{
-
+			if (args.size() > 1)
+			{
+				std::cout << "Bad command; the syntax is : " << "\"sell optionalAmount\"" << std::endl;
+			}
+			else
+			{
+				//check to ensure int is valid
+				try
+				{
+					if (std::stoi(args.at(0)) < 1)
+					{
+						std::cout << "Nothing to sell." << std::endl;
+					}
+					else if (std::stoi(args.at(0)) > current_cargo_value)
+					{
+						std::cout << "Only $" << current_cargo_value << " available in cargo." << std::endl;
+					}
+					else
+					{
+						current_orbit_moon->SellCargo(*this, std::stoi(args.at(0)));
+					}
+				}
+				catch (const std::invalid_argument e)
+				{
+					std::cout << "Invalid amount " << "\"" << args.at(0) << "\"" << std::endl;
+				}
+			}
 		}
 
 		else if (user_input == "leave")

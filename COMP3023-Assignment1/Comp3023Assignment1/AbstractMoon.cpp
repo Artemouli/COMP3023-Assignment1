@@ -114,8 +114,6 @@ void AbstractMoon::SendEmployees(Game& game, int employee_count)
 					}
 				}
 			}
-			
-			
 			game.IncreaseCargoValue(collected_scrap);
 			total_scrap += collected_scrap;
 		}
