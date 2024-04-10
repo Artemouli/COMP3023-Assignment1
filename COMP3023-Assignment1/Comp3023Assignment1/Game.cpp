@@ -389,7 +389,9 @@ void Game::IncreaseBalance(int value)
 {
 	std::cout << "Your service is invaluable to the corporation." << std::endl;
 	balance = balance + value;
-	std::cout << "New balance: $" << balance << "(quota is $" << quota << ")" << std::endl;
+	std::cout << "New balance: $" << balance << " (quota is $" << quota << ")" << std::endl;
+	current_cargo_value = current_cargo_value - value;
+	std::cout << "New cargo value: $" << current_cargo_value << std::endl;
 }
 
 void Game::AllEmployeesDead()
