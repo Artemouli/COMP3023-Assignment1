@@ -24,6 +24,8 @@ public:
 private:
 	//keeps track of the moons
 	std::map<std::string, AbstractMoon*> moons;
+	//keeps track of insertion order
+	std::vector<std::string> insertion_order;
 };
 
 #endif 

@@ -10,6 +10,9 @@
 
 #include "Prototyping.h"
 #include "Corporation.h"
+#include "Insurance.h"
+#include "Pledge.h"
+#include "Defence.h"
 
 #include "util.h"
 #include "AbstractMoon.h"
@@ -386,9 +389,19 @@ void Game::defineMoons()
 {
 	Corporation* corporation = new Corporation();
 	moon_manager.registerMoon(corporation);
+
 	Prototyping* prototyping = new Prototyping();
-	prototyping->onDayBegins(*this);
 	moon_manager.registerMoon(prototyping);
+
+	Insurance* insurance = new Insurance();
+	moon_manager.registerMoon(insurance);
+
+	Pledge* pledge = new Pledge();
+	moon_manager.registerMoon(pledge);
+
+	Defence* defence = new Defence();
+	moon_manager.registerMoon(defence);
+
 }
 
 float Game::applyItemManagerMulti(float parameter_chance, std::string parameter_name)

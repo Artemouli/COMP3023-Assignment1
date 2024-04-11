@@ -9,13 +9,26 @@ void MoonManager::registerMoon(AbstractMoon* newMoon)
 {
 	//temp name is used so that the key is an all lowercase version of the moon name
 	std::string temp_name = newMoon->getName();
+	//std::cout << temp_name << std::endl;
 	util::lower(temp_name);
 	moons.insert({ temp_name, newMoon});
+	insertion_order.push_back(temp_name);
 }
 
 void MoonManager::viewMoons()
 {
-	for (const auto& pair : moons)
+	for (int i = 0; i < insertion_order.size(); i++)
+	{
+		std::cout << "* ";
+		std::cout << moons.at(insertion_order.at(i))->getName();
+		std::cout << moons.at(insertion_order.at(i))->getWeatherCondition();
+		if (moons.at(insertion_order.at(i))->getPrice() > 0)
+		{
+			std::cout << ": " << "$" << moons.at(insertion_order.at(i))->getPrice();
+		}
+		std::cout << std::endl;
+	}
+	/*for (const auto& pair : moons)
 	{
 		std::cout << "* ";
 		std::cout << pair.second->getName();
@@ -25,7 +38,7 @@ void MoonManager::viewMoons()
 			std::cout << ": " << "$" << pair.second->getPrice();
 		}
 		std::cout << std::endl;
-	}
+	}*/
 }
 
 void MoonManager::deleteMoons()
