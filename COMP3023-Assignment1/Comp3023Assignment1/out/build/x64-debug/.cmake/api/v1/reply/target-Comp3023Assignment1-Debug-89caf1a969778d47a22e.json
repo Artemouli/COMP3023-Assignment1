@@ -74,7 +74,13 @@
 				19,
 				20,
 				22,
-				24
+				24,
+				27,
+				29,
+				30,
+				32,
+				34,
+				36
 			]
 		}
 	],
@@ -123,7 +129,13 @@
 				19,
 				20,
 				22,
-				24
+				24,
+				27,
+				29,
+				30,
+				32,
+				34,
+				36
 			]
 		},
 		{
@@ -142,7 +154,13 @@
 				18,
 				21,
 				23,
-				25
+				25,
+				26,
+				28,
+				31,
+				33,
+				35,
+				37
 			]
 		}
 	],
@@ -289,6 +307,72 @@
 		{
 			"backtrace" : 1,
 			"path" : "Defence.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Shovel.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Shovel.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "ProFlashlight.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "ProFlashlight.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Teleporter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Teleporter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "InverseTeleporter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "InverseTeleporter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Backpack.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Backpack.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "HydraulicsMK2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "HydraulicsMK2.h",
 			"sourceGroupIndex" : 1
 		}
 	],

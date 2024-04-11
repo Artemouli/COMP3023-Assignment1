@@ -57,6 +57,13 @@ protected:
 	//std::vector <Multi*> system_multiplier;
 	//multi is not needed, a hashmap that contains the two values would be more efficient then having objects
 	std::map <std::string, float> system_multiplier;
+	//affected parameters:
+	//scrap value multiplier: value
+	//explorer survival chance multiplier: explorer
+	//operator survival chance multiplier: operator
+	//explorer save chance: save
+	//loot recovery multiplier: loot
+
 };
 
 #endif //ABSTRACT_ITEM
