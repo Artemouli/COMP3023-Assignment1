@@ -64,7 +64,7 @@ void Game::initaliseNewGame()
 	float temp = 0.5f;
 	std::string s_temp = "explorer";
 	std::cout << "temp: " << temp << std::endl;
-	temp = item_manager.ApplyMulti(temp, s_temp);
+	temp = item_manager.applyMulti(temp, s_temp);
 	std::cout << "temp: " << temp << std::endl;
 
 	moon_manager.ViewMoons();
@@ -86,6 +86,7 @@ void Game::initaliseNewGame()
 
 void Game::newDay()
 {
+	
 	total_days += 1;
 	current_alive_crew = 4;
 	current_day -= 1;
@@ -209,7 +210,7 @@ void Game::inOrbit()
 	{
 		if (user_input == "store")
 		{
-			item_manager.Store();
+			item_manager.store();
 		}
 		else if (user_input == "buy")
 		{
@@ -221,7 +222,7 @@ void Game::inOrbit()
 			{
 				if (balance >= item_manager.getItemPrice(args.at(0)))
 				{
-					item_manager.Buy(args.at(0));
+					item_manager.buy(args.at(0));
 					std::cout << "Your balance is now $" << balance << std::endl;
 				}
 				else
@@ -234,7 +235,7 @@ void Game::inOrbit()
 	}
 	else if (user_input == "inventory")
 	{
-		item_manager.Inventory();
+		item_manager.inventory();
 		std::cout << "Balance: $" << balance << " (quota is $" << quota << ")" << std::endl;
 		std::cout << "Cargo value: $" << current_cargo_value << std::endl;
 		inOrbit();
@@ -374,7 +375,7 @@ void Game::defineItems()
 {
 	//creates the flashlight object and then calls itemManager
 	Flashlight* flashlight = new Flashlight();
-	item_manager.RegisterItem(flashlight);
+	item_manager.registerItem(flashlight);
 }
 
 //defines the moon and adds them to the hashmap
@@ -389,7 +390,7 @@ void Game::defineMoons()
 
 float Game::applyItemManagerMulti(float parameter_chance, std::string parameter_name)
 {
-	return item_manager.ApplyMulti(parameter_chance, parameter_name);
+	return item_manager.applyMulti(parameter_chance, parameter_name);
 }
 
 //used for generating a number that AbstractMoon can use
@@ -446,7 +447,7 @@ void Game::allEmployeesDead()
 void Game::endGame()
 {
 	//for loop here to delete the items and moons
-	item_manager.DeleteItems();
+	item_manager.deleteItems();
 	moon_manager.DeleteMoons();
 }
 

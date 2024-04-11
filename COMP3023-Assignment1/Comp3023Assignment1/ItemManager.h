@@ -12,29 +12,24 @@
 class ItemManager {
 public:
 	//registers the item by adding it to the map
-	void RegisterItem(AbstractItem* new_item);
+	void registerItem(AbstractItem* new_item);
 
-	void Inventory();
+	void inventory();
 
-	void Store();
+	void store();
 
 	//gets the price of the item
 	int getItemPrice(std::string item_name);
 
 	//handles setting the bought and setting the multipliers
-	void Buy(std::string buy_item_name);
+	void buy(std::string buy_item_name);
 
 	//is called by the end game function to free up memory
-	void DeleteItems();
+	void deleteItems();
 	
 	//apply multi
 	//takes in the current chance and the parameter that is being affected, multiplies the chance by the parameter multipliers
-	float ApplyMulti(float parameter_chance, std::string parameter_name);
-
-	//get multi
-	//std::unordered_multimap<std::string, float>* 
-	float getMulti();
-
+	float applyMulti(float parameter_chance, std::string parameter_name);
 
 
 private: 

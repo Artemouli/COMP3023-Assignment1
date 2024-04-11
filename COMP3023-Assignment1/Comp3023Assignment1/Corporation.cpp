@@ -5,7 +5,7 @@
 #include <iostream>
 #include <memory>
 
-Corporation::Corporation(std::string new_name, float new_survival_chance, int min, int max) : AbstractMoon(new_name, new_survival_chance, min, max)
+Corporation::Corporation(std::string new_name, float new_survival_chance, int min, int max, int cost) : AbstractMoon(new_name, new_survival_chance, min, max, cost)
 {
 
 }

@@ -6,7 +6,7 @@
 #include "ItemManager.h"
 #include "util.h"
 
-void ItemManager::Store()
+void ItemManager::store()
 {
 	for (const auto& pair : items)
 	{
@@ -24,7 +24,7 @@ void ItemManager::Store()
 	}
 }
 
-void ItemManager::Inventory()
+void ItemManager::inventory()
 {
 	//this variable is used to check if there is atleast 1 item bought
 	bool itemBought = false;
@@ -47,14 +47,14 @@ void ItemManager::Inventory()
 	}
 }
 
-void ItemManager::RegisterItem(AbstractItem* new_item)
+void ItemManager::registerItem(AbstractItem* new_item)
 {
 	std::string temp_name = new_item->getName();
 	util::lower(temp_name);
 	items.insert({temp_name, new_item});
 }
 
-void ItemManager::DeleteItems()
+void ItemManager::deleteItems()
 {
 	for (const auto& pair : items)
 	{
@@ -70,7 +70,7 @@ int ItemManager::getItemPrice(std::string item_name)
 	}
 }
 
-void ItemManager::Buy(std::string buy_item_name)
+void ItemManager::buy(std::string buy_item_name)
 {
 	//prevents crashing
 	if (items.count(buy_item_name) > 0)
@@ -91,7 +91,7 @@ void ItemManager::Buy(std::string buy_item_name)
 	}
 }
 
-float ItemManager::ApplyMulti(float parameter_chance, std::string parameter_name)
+float ItemManager::applyMulti(float parameter_chance, std::string parameter_name)
 {
 	for (const auto pair : items)
 	{
