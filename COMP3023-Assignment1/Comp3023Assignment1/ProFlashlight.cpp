@@ -1,4 +1,4 @@
-#include "Pro-Flashlight.h"
+#include "ProFlashlight.h"
 #include "AbstractItem.h"
 
 #include <iostream>

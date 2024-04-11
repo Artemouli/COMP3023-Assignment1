@@ -36,6 +36,8 @@ public:
 private: 
 	//keeps track of the items
 	std::map<std::string, AbstractItem*> items;
+	//keeps track of the order that the items are inserted in
+	std::vector<std::string> insert_order;
 
 	//affected parameters:
 	//scrap value multiplier: value

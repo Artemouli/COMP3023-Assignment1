@@ -5,6 +5,12 @@
 #include "ItemManager.h"
 
 #include "Flashlight.h"
+#include "Shovel.h"
+#include "ProFlashlight.h"
+#include "Teleporter.h"
+#include "InverseTeleporter.h"
+#include "Backpack.h"
+#include "HydraulicsMK2.h"
 
 #include "MoonManager.h"
 
@@ -416,6 +422,24 @@ void Game::defineItems()
 	//creates the flashlight object and then calls itemManager
 	Flashlight* flashlight = new Flashlight();
 	item_manager.registerItem(flashlight);
+
+	Shovel* shovel = new Shovel();
+	item_manager.registerItem(shovel);
+
+	ProFlashlight* proFlashlight = new ProFlashlight();
+	item_manager.registerItem(proFlashlight);
+
+	Teleporter* teleporter = new Teleporter();
+	item_manager.registerItem(teleporter);
+
+	InverseTeleporter* inverseTeleporter = new InverseTeleporter();
+	item_manager.registerItem(inverseTeleporter);
+
+	Backpack* backpack = new Backpack();
+	item_manager.registerItem(backpack);
+
+	HydraulicsMK2* hydraulicsMK2 = new HydraulicsMK2();
+	item_manager.registerItem(hydraulicsMK2);
 }
 
 //defines the moon and adds them to the hashmap

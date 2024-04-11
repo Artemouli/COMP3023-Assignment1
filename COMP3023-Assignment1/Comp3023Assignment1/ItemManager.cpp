@@ -13,18 +13,19 @@ void ItemManager::store()
 	std::cout << "Use the word BUY on any item." << std::endl;
 	std::cout << "---------------------------------------" << std::endl;
 	std::cout << std::endl;
-	for (const auto& pair : items)
+	for (int i = 0; i < insert_order.size(); i++)
 	{
 		std::cout << "* ";
-		std::cout << pair.second->getName();
+		
+		std::cout << items.at(insert_order.at(i))->getName();
 		std::cout << " // ";
-		if (pair.second->getBought() == true)
+		if (items.at(insert_order.at(i))->getBought() == true)
 		{
 			std::cout << "Bought" << std::endl;
 		}
 		else
 		{
-			std::cout << "Price: $" << pair.second->getPrice() << std::endl;
+			std::cout << "Price: $" << items.at(insert_order.at(i))->getPrice() << std::endl;
 		}
 	}
 	std::cout << std::endl;
@@ -58,6 +59,7 @@ void ItemManager::registerItem(AbstractItem* new_item)
 	std::string temp_name = new_item->getName();
 	util::lower(temp_name);
 	items.insert({temp_name, new_item});
+	insert_order.push_back(temp_name);
 }
 
 void ItemManager::deleteItems()
