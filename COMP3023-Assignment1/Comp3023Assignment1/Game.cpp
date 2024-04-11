@@ -105,6 +105,18 @@ void Game::newDay()
 			std::cout << "-------------------------------------" << std::endl;
 			current_day = 3;
 		}
+		else
+		{
+			std::cout << "-------------------------------------" << std::endl;
+			std::cout << ">>>>>>>>>>>>> GAME OVER <<<<<<<<<<<<<" << std::endl;
+			std::cout << "-------------------------------------" << std::endl;
+			std::cout << std::endl;
+
+			std::cout << "You did not meet quota in time, and your employees have been fired." << std::endl;
+			std::cout << "You kept them alive for " << total_days << " days." << std::endl;
+			std::cout << std::endl;
+			endGame();
+		}
 	}
 	//sets the moons weathers
 	moon_manager.newDay(*this);
@@ -261,6 +273,10 @@ void Game::inOrbit()
 	else if (user_input == "land")
 	{
 		landedMoon();
+	}
+	else if (user_input == "exit")
+	{
+		endGame();
 	}
 	else
 	{
@@ -483,5 +499,6 @@ void Game::endGame()
 	//for loop here to delete the items and moons
 	item_manager.deleteItems();
 	moon_manager.deleteMoons();
+	std::exit(EXIT_SUCCESS);
 }
 
