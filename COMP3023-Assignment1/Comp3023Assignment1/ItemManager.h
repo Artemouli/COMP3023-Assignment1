@@ -31,7 +31,6 @@ public:
 	//takes in the current chance and the parameter that is being affected, multiplies the chance by the parameter multipliers
 	float applyMulti(float parameter_chance, std::string parameter_name);
 
-
 private: 
 	//keeps track of the items
 	std::map<std::string, AbstractItem*> items;

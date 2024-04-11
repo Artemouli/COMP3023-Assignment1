@@ -37,7 +37,7 @@ void Game::initaliseNewGame()
 	defineItems();
 	
 	//TODO: set current orbiting moon to corporation
-	current_orbit_moon = moon_manager.GetMoon("corporation");
+	current_orbit_moon = moon_manager.getMoon("corporation");
 
 	std::cout << \
 		"    ___               _ _           ___                 \n" \
@@ -67,9 +67,9 @@ void Game::initaliseNewGame()
 	temp = item_manager.applyMulti(temp, s_temp);
 	std::cout << "temp: " << temp << std::endl;
 
-	moon_manager.ViewMoons();
+	moon_manager.viewMoons();
 	
-	current_orbit_moon = moon_manager.GetMoon("Prototyping");
+	current_orbit_moon = moon_manager.getMoon("Prototyping");
 
 	current_orbit_moon->sendEmployees(*this, 3);
 
@@ -77,9 +77,9 @@ void Game::initaliseNewGame()
 
 	current_orbit_moon->ChooseWeatherCondition(0.5f);
 
-	moon_manager.ViewMoons(); 
+	moon_manager.viewMoons(); 
 
-	current_orbit_moon = moon_manager.GetMoon("Corporation");
+	current_orbit_moon = moon_manager.getMoon("Corporation");
 
 	current_orbit_moon->sellCargo(*this, current_cargo_value); */
 }
@@ -91,6 +91,9 @@ void Game::newDay()
 	current_alive_crew = 4;
 	current_day -= 1;
 	
+	//sets the moons weathers
+	moon_manager.newDay(*this);
+
 	std::cout << "============= " << "DAY " << total_days << " =============" << std::endl;
 	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
 	std::cout << "Current balance: $" << balance << std::endl;
@@ -132,7 +135,7 @@ void Game::inOrbit()
 			std::cout << "Welcome to the exomoons catalogue." << std::endl;
 			std::cout << "To route the autopilot to a moon, use the word ROUTE." << std::endl;
 			std::cout << "---------------------------------------" << std::endl;
-			moon_manager.ViewMoons();
+			moon_manager.viewMoons();
 		}
 		else if (user_input == "route")
 		{
@@ -153,17 +156,17 @@ void Game::inOrbit()
 					std::cout << "Already orbiting " << current_orbit_moon->getName() << std::endl;
 				}
 				//if not and is not a nullptr
-				else if (moon_manager.GetMoon(args.at(0)) != nullptr)
+				else if (moon_manager.getMoon(args.at(0)) != nullptr)
 				{
 					//checks if the moons price is 0
-					if (moon_manager.GetMoon(args.at(0))->getPrice() == 0)
+					if (moon_manager.getMoon(args.at(0))->getPrice() == 0)
 					{
-						current_orbit_moon = moon_manager.GetMoon(args.at(0));
+						current_orbit_moon = moon_manager.getMoon(args.at(0));
 						std::cout << "Now orbiting " << current_orbit_moon->getName() << ". Use the LAND command to land." << std::endl;
 					}
 					else
 					{
-						std::cout << "The cost of going to " << moon_manager.GetMoon(args.at(0))->getName() << " is  $" << moon_manager.GetMoon(args.at(0))->getPrice() << std::endl;
+						std::cout << "The cost of going to " << moon_manager.getMoon(args.at(0))->getName() << " is  $" << moon_manager.getMoon(args.at(0))->getPrice() << std::endl;
 						std::cout << "You have $" << balance << ". Confirm destination? [Yes/No]" << std::endl;
 						std::string confirmation;
 						std::cout << "> ";
@@ -177,14 +180,14 @@ void Game::inOrbit()
 						}
 						else if (confirmation == "yes")
 						{
-							if (moon_manager.GetMoon(args.at(0))->getPrice() > balance)
+							if (moon_manager.getMoon(args.at(0))->getPrice() > balance)
 							{
 								std::cout << "You don't have enough funds to route to this moon." << std::endl;
 							}
 							else
 							{
-								moon_manager.GetMoon(args.at(0))->onNavigate(*this);
-								current_orbit_moon = moon_manager.GetMoon(args.at(0));
+								moon_manager.getMoon(args.at(0))->onNavigate(*this);
+								current_orbit_moon = moon_manager.getMoon(args.at(0));
 								std::cout << "Now orbiting " << current_orbit_moon->getName() << ". Use the LAND command to land." << std::endl;
 							}
 						}
@@ -382,10 +385,10 @@ void Game::defineItems()
 void Game::defineMoons()
 {
 	Corporation* corporation = new Corporation();
-	moon_manager.RegisterMoon(corporation);
+	moon_manager.registerMoon(corporation);
 	Prototyping* prototyping = new Prototyping();
 	prototyping->onDayBegins(*this);
-	moon_manager.RegisterMoon(prototyping);
+	moon_manager.registerMoon(prototyping);
 }
 
 float Game::applyItemManagerMulti(float parameter_chance, std::string parameter_name)
@@ -448,6 +451,6 @@ void Game::endGame()
 {
 	//for loop here to delete the items and moons
 	item_manager.deleteItems();
-	moon_manager.DeleteMoons();
+	moon_manager.deleteMoons();
 }
 

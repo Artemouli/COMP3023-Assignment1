@@ -1,10 +1,11 @@
 #include "MoonManager.h"
 #include "AbstractMoon.h"
 #include "util.h"
+#include "Game.h"
 
 #include <iostream>
 
-void MoonManager::RegisterMoon(AbstractMoon* newMoon)
+void MoonManager::registerMoon(AbstractMoon* newMoon)
 {
 	//temp name is used so that the key is an all lowercase version of the moon name
 	std::string temp_name = newMoon->getName();
@@ -12,7 +13,7 @@ void MoonManager::RegisterMoon(AbstractMoon* newMoon)
 	moons.insert({ temp_name, newMoon});
 }
 
-void MoonManager::ViewMoons()
+void MoonManager::viewMoons()
 {
 	for (const auto& pair : moons)
 	{
@@ -27,12 +28,12 @@ void MoonManager::ViewMoons()
 	}
 }
 
-void MoonManager::DeleteMoons()
+void MoonManager::deleteMoons()
 {
 	moons.clear();
 }
 
-AbstractMoon* MoonManager::GetMoon(std::string moon_name)
+AbstractMoon* MoonManager::getMoon(std::string moon_name)
 {
 	if (moons.count(moon_name) > 0)
 	{
@@ -42,5 +43,13 @@ AbstractMoon* MoonManager::GetMoon(std::string moon_name)
 	else
 	{
 		return nullptr;
+	}
+}
+
+void MoonManager::newDay(Game& game)
+{
+	for (const auto& pair : moons)
+	{
+		pair.second->onDayBegins(game);
 	}
 }

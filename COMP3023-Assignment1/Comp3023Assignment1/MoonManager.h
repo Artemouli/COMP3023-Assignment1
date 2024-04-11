@@ -1,5 +1,7 @@
 #include "AbstractMoon.h"
 #include "util.h"
+//game is only inherited so it can be passed into abstract moon
+class Game;
 
 #include <map>
 
@@ -8,13 +10,15 @@
 
 class MoonManager {
 public:
-	void RegisterMoon(AbstractMoon* newMoon);
+	void registerMoon(AbstractMoon* newMoon);
 
-	void ViewMoons();
+	void viewMoons();
 
-	void DeleteMoons();
+	void deleteMoons();
 
-	AbstractMoon* GetMoon(std::string moon_name);
+	AbstractMoon* getMoon(std::string moon_name);
+
+	void newDay(Game& game);
 
 
 private:
