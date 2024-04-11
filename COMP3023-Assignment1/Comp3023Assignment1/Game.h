@@ -16,48 +16,48 @@ public:
 
 
 	//the initaliser function that calls all the other functions
-	void InitaliseNewGame();
+	void initaliseNewGame();
 
 
 	//starts a new day
-	void NewDay();
+	void newDay();
 	//handles all of the store and menuing while in orbit
-	void InOrbit();
+	void inOrbit();
 
 	//handles all of the gameplay for when a player is landed on a moon
-	void LandedMoon();
+	void landedMoon();
 
 	//defines the items and adds them to the hashmap
-	void DefineItems();
+	void defineItems();
 
 	//defines the moons and adds them to the hashmap
-	void DefineMoons();	
+	void defineMoons();	
 
 	//ends the game
-	void EndGame();
+	void endGame();
 
 	//exclusively used by abstract moon so it can apply the multi
-	float ApplyItemManagerMulti(float parameter_chance, std::string parameter_name);
+	float applyItemManagerMulti(float parameter_chance, std::string parameter_name);
 
 	//used to generate a number
-	float GenerateNum(float min = 0.0f, float max = 1.0f);
+	float generateNum(float min = 0.0f, float max = 1.0f);
 
 	//used to decrease amount of alive crew
-	void DecreaseAliveCrew();
+	void decreaseAliveCrew();
 	//used to get current amount of alive crew
-	int CurrentAliveCrew();
+	int currentAliveCrew();
 
 	//used to increase amount of current cargo value
-	void IncreaseCargoValue(int scrap);
+	void increaseCargoValue(int scrap);
 
 	//used to increase balance and print the text
-	void IncreaseBalance(int value);
+	void increaseBalance(int value);
 
 	//used to decrease balance
 	void decreaseBalance(int value);
 
 	//used when all of the employees have died
-	void AllEmployeesDead();
+	void allEmployeesDead();
 
 private:
 	int balance = 50;

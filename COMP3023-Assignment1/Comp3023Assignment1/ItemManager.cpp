@@ -11,15 +11,15 @@ void ItemManager::Store()
 	for (const auto& pair : items)
 	{
 		std::cout << "* ";
-		std::cout << pair.second->GetName();
+		std::cout << pair.second->getName();
 		std::cout << " // ";
-		if (pair.second->GetBought() == true)
+		if (pair.second->getBought() == true)
 		{
 			std::cout << "Bought" << std::endl;
 		}
 		else
 		{
-			std::cout << "Price: $" << pair.second->GetPrice() << std::endl;
+			std::cout << "Price: $" << pair.second->getPrice() << std::endl;
 		}
 	}
 }
@@ -33,11 +33,11 @@ void ItemManager::Inventory()
 	std::cout << std::endl;
 	for (const auto& pair : items)
 	{
-		if (pair.second->GetBought() == true)
+		if (pair.second->getBought() == true)
 		{
 			itemBought = true;
 			std::cout << "* ";
-			std::cout << pair.second->GetName();
+			std::cout << pair.second->getName();
 		}
 	}
 	//if no items have been bought
@@ -49,7 +49,7 @@ void ItemManager::Inventory()
 
 void ItemManager::RegisterItem(AbstractItem* new_item)
 {
-	std::string temp_name = new_item->GetName();
+	std::string temp_name = new_item->getName();
 	util::lower(temp_name);
 	items.insert({temp_name, new_item});
 }
@@ -66,7 +66,7 @@ int ItemManager::getItemPrice(std::string item_name)
 {
 	if (items.count(item_name) > 0)
 	{
-		return items.at(item_name)->GetPrice();
+		return items.at(item_name)->getPrice();
 	}
 }
 
@@ -75,14 +75,14 @@ void ItemManager::Buy(std::string buy_item_name)
 	//prevents crashing
 	if (items.count(buy_item_name) > 0)
 	{
-		if (items.at(buy_item_name)->GetBought() == true)
+		if (items.at(buy_item_name)->getBought() == true)
 		{
-			std::cout << "You already own a " << items.at(buy_item_name)->GetName() << "." << std::endl;
+			std::cout << "You already own a " << items.at(buy_item_name)->getName() << "." << std::endl;
 		}
 		else
 		{
-			items.at(buy_item_name)->IsBought();
-			std::cout << "Successfully bought " << items.at(buy_item_name)->GetName() << "." << std::endl;
+			items.at(buy_item_name)->isBought();
+			std::cout << "Successfully bought " << items.at(buy_item_name)->getName() << "." << std::endl;
 		}
 	}
 	else
@@ -96,18 +96,18 @@ float ItemManager::ApplyMulti(float parameter_chance, std::string parameter_name
 	for (const auto pair : items)
 	{
 		//if item is bought
-		if (pair.second->GetBought() == true)
+		if (pair.second->getBought() == true)
 		{
 			//retrieves the multiplier float from the system_multiplier hashmap
 			//if the system_multiplier hashmap does not have the parameter_name, returns 1
 			//is for setting the save chance
 			if (parameter_name == "save")
 			{
-				parameter_chance = parameter_chance = pair.second->GetMulti(parameter_name);
+				parameter_chance = parameter_chance = pair.second->getMulti(parameter_name);
 			}
 			else
 			{
-				parameter_chance = parameter_chance * pair.second->GetMulti(parameter_name);
+				parameter_chance = parameter_chance * pair.second->getMulti(parameter_name);
 			}
 		}
 	}

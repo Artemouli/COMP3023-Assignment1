@@ -21,7 +21,7 @@ void Corporation::sendEmployees(Game& game, int employee_count)
 	std::cout << "This command is not available on this moon." << std::endl;
 }
 
-void Corporation::SellCargo(Game& game, int amount)
+void Corporation::sellCargo(Game& game, int amount)
 {
-	game.IncreaseBalance(amount);
+	game.increaseBalance(amount);
 }

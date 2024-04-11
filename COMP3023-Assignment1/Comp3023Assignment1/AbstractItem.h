@@ -15,24 +15,24 @@ public:
 	//for each item cpp file, the item will initialise the Multi's it needs inside its constructor
 	AbstractItem(std::string newName, int newPrice) : name(newName), price(newPrice) {}
 	
-	virtual std::string GetName() const {
+	virtual std::string getName() const {
 		return name;
 	};
 
-	virtual int GetPrice() const {
+	virtual int getPrice() const {
 		return price;
 	};
-	virtual bool GetBought() const {
+	virtual bool getBought() const {
 		return bought;
 	};
 	//sets the item to bought while also deleting the allocated memory
-	virtual void IsBought()  
+	virtual void isBought()  
 	{ 
 		bought = true;
 	};
 
 	//gets the multiplier float
-	virtual float GetMulti(std::string parameter_name) {
+	virtual float getMulti(std::string parameter_name) {
 		if (system_multiplier.count(parameter_name))
 		{
 			return system_multiplier.at(parameter_name);
@@ -41,7 +41,7 @@ public:
 		return 1;
 	}
 
-	virtual void DeleteMulti()
+	virtual void deleteMulti()
 	{
 		system_multiplier.clear();
 	}

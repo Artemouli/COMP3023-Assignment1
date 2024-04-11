@@ -32,7 +32,8 @@ public:
 	float ApplyMulti(float parameter_chance, std::string parameter_name);
 
 	//get multi
-	//std::unordered_multimap<std::string, float>* GetMulti();
+	//std::unordered_multimap<std::string, float>* 
+	float getMulti();
 
 
 

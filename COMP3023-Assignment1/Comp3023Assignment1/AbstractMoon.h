@@ -24,12 +24,12 @@ public:
 		travel_cost(cost),
 		weather_condition(WeatherCondition::Clear) {};
 
-	virtual const std::string GetName() const {
+	virtual const std::string getName() const {
 		return moon_name;
 	}
 
 	//returns the current weather condition as a string for printing
-	virtual std::string GetWeatherCondition() const 
+	virtual std::string getWeatherCondition() const 
 	{
 		switch (weather_condition)
 		{
@@ -55,7 +55,7 @@ public:
 
 	//this only works on corporation moon
 	//this method is overridden by the corporation moon
-	virtual void SellCargo(Game& game, int amount)
+	virtual void sellCargo(Game& game, int amount)
 	{
 		std::cout << "This command is not available on this moon." << std::endl;
 	};
@@ -65,7 +65,7 @@ public:
 	virtual void onNavigate(Game& game);
 
 	//intended to be overridden by moons which do have a price
-	virtual int GetPrice()
+	virtual int getPrice()
 	{
 		return travel_cost;
 	};

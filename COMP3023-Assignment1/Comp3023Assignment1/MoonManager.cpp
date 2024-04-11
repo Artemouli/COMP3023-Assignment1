@@ -7,7 +7,7 @@
 void MoonManager::RegisterMoon(AbstractMoon* newMoon)
 {
 	//temp name is used so that the key is an all lowercase version of the moon name
-	std::string temp_name = newMoon->GetName();
+	std::string temp_name = newMoon->getName();
 	util::lower(temp_name);
 	moons.insert({ temp_name, newMoon});
 }
@@ -17,11 +17,11 @@ void MoonManager::ViewMoons()
 	for (const auto& pair : moons)
 	{
 		std::cout << "* ";
-		std::cout << pair.second->GetName();
-		std::cout << pair.second->GetWeatherCondition();
-		if (pair.second->GetPrice() > 0)
+		std::cout << pair.second->getName();
+		std::cout << pair.second->getWeatherCondition();
+		if (pair.second->getPrice() > 0)
 		{
-			std::cout << ": " << "$" << pair.second->GetPrice();
+			std::cout << ": " << "$" << pair.second->getPrice();
 		}
 		std::cout << std::endl;
 	}

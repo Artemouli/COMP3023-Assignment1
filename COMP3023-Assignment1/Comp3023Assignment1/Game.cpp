@@ -25,7 +25,7 @@
 
 Game::~Game() {};
 
-void Game::InitaliseNewGame()
+void Game::initaliseNewGame()
 {
 	//initalise the starting variables
 	balance = 50;
@@ -33,8 +33,8 @@ void Game::InitaliseNewGame()
 	quota = 150;
 	current_alive_crew = 4;
 
-	DefineMoons();
-	DefineItems();
+	defineMoons();
+	defineItems();
 	
 	//TODO: set current orbiting moon to corporation
 	current_orbit_moon = moon_manager.GetMoon("corporation");
@@ -51,7 +51,7 @@ void Game::InitaliseNewGame()
 	std::cout << "We trust that you will be a great asset to the corporation!" << std::endl;
 	std::cout << std::endl;
 
-	NewDay();
+	newDay();
 
 	//testing code
 	/*std::cout << "after defining" << std::endl;
@@ -81,10 +81,10 @@ void Game::InitaliseNewGame()
 
 	current_orbit_moon = moon_manager.GetMoon("Corporation");
 
-	current_orbit_moon->SellCargo(*this, current_cargo_value); */
+	current_orbit_moon->sellCargo(*this, current_cargo_value); */
 }
 
-void Game::NewDay()
+void Game::newDay()
 {
 	total_days += 1;
 	current_alive_crew = 4;
@@ -94,7 +94,7 @@ void Game::NewDay()
 	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
 	std::cout << "Current balance: $" << balance << std::endl;
 	std::cout << "Current quota: $" << quota << " (" << current_day << " days left to meet quota)" << std::endl;
-	std::cout << "Currently orbiting: " << current_orbit_moon->GetName() << std::endl;
+	std::cout << "Currently orbiting: " << current_orbit_moon->getName() << std::endl;
 	
 	//space
 	std::cout << std::endl;
@@ -109,10 +109,10 @@ void Game::NewDay()
 	std::cout << ">INVENTORY" << std::endl;
 	std::cout << "To see the list of items you've already bought." << std::endl;
 
-	InOrbit();
+	inOrbit();
 }
 
-void Game::InOrbit()
+void Game::inOrbit()
 {
 	std::cout << std::endl;
 	std::string user_input;
@@ -144,25 +144,25 @@ void Game::InOrbit()
 			else
 			{
 				//this string is used for checking if the currently orbiting moon is the same as the input
-				std::string current_moon_name = current_orbit_moon->GetName();
+				std::string current_moon_name = current_orbit_moon->getName();
 				util::lower(current_moon_name);
 				//check if is currently orbiting moon
 				if (current_moon_name == args.at(0))
 				{
-					std::cout << "Already orbiting " << current_orbit_moon->GetName() << std::endl;
+					std::cout << "Already orbiting " << current_orbit_moon->getName() << std::endl;
 				}
 				//if not and is not a nullptr
 				else if (moon_manager.GetMoon(args.at(0)) != nullptr)
 				{
 					//checks if the moons price is 0
-					if (moon_manager.GetMoon(args.at(0))->GetPrice() == 0)
+					if (moon_manager.GetMoon(args.at(0))->getPrice() == 0)
 					{
 						current_orbit_moon = moon_manager.GetMoon(args.at(0));
-						std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
+						std::cout << "Now orbiting " << current_orbit_moon->getName() << ". Use the LAND command to land." << std::endl;
 					}
 					else
 					{
-						std::cout << "The cost of going to " << moon_manager.GetMoon(args.at(0))->GetName() << " is  $" << moon_manager.GetMoon(args.at(0))->GetPrice() << std::endl;
+						std::cout << "The cost of going to " << moon_manager.GetMoon(args.at(0))->getName() << " is  $" << moon_manager.GetMoon(args.at(0))->getPrice() << std::endl;
 						std::cout << "You have $" << balance << ". Confirm destination? [Yes/No]" << std::endl;
 						std::string confirmation;
 						std::cout << "> ";
@@ -172,11 +172,11 @@ void Game::InOrbit()
 						if (confirmation == "no")
 						{
 							std::cout << "Trip cancelled." << std::endl;
-							std::cout << "Still orbiting " << current_orbit_moon->GetName() << "." << std::endl;
+							std::cout << "Still orbiting " << current_orbit_moon->getName() << "." << std::endl;
 						}
 						else if (confirmation == "yes")
 						{
-							if (moon_manager.GetMoon(args.at(0))->GetPrice() > balance)
+							if (moon_manager.GetMoon(args.at(0))->getPrice() > balance)
 							{
 								std::cout << "You don't have enough funds to route to this moon." << std::endl;
 							}
@@ -184,7 +184,7 @@ void Game::InOrbit()
 							{
 								moon_manager.GetMoon(args.at(0))->onNavigate(*this);
 								current_orbit_moon = moon_manager.GetMoon(args.at(0));
-								std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
+								std::cout << "Now orbiting " << current_orbit_moon->getName() << ". Use the LAND command to land." << std::endl;
 							}
 						}
 						else
@@ -201,7 +201,7 @@ void Game::InOrbit()
 				}
 			}
 		}
-		InOrbit();
+		inOrbit();
 
 	}
 	//handle store input
@@ -230,33 +230,33 @@ void Game::InOrbit()
 				}
 			}
 		}
-		InOrbit();
+		inOrbit();
 	}
 	else if (user_input == "inventory")
 	{
 		item_manager.Inventory();
 		std::cout << "Balance: $" << balance << " (quota is $" << quota << ")" << std::endl;
 		std::cout << "Cargo value: $" << current_cargo_value << std::endl;
-		InOrbit();
+		inOrbit();
 	}
 	else if (user_input == "land")
 	{
-		LandedMoon();
+		landedMoon();
 	}
 	else
 	{
 		std::cout << "Unknown command." << std::endl;
-		InOrbit();
+		inOrbit();
 	}
 }
 
-void Game::LandedMoon()
+void Game::landedMoon()
 {
 	//keeps while loop running until player enters leave command
 	bool leave = false;
 
 	std::cout << std::endl;
-	std::cout << "WELCOME TO " << current_orbit_moon->GetName() << "!" << std::endl;
+	std::cout << "WELCOME TO " << current_orbit_moon->getName() << "!" << std::endl;
 	std::cout << std::endl;
 	std::cout << "Current cargo value: $" << current_cargo_value << std::endl;
 	std::cout << "Current balance: $" << balance << std::endl;
@@ -264,7 +264,7 @@ void Game::LandedMoon()
 	std::cout << "Number of employees: " << current_alive_crew << std::endl;
 	
 	//tutorial for corporation moon
-	if (current_orbit_moon->GetName() == "Corporation")
+	if (current_orbit_moon->getName() == "Corporation")
 	{
 		std::cout << "Type SELL to sell your cargo contents and increase your balance and achieve quota." << std::endl;
 		std::cout << "Specify the amount to sell after the SELL word to only sell a portion of your cargo." << std::endl;
@@ -281,7 +281,7 @@ void Game::LandedMoon()
 		if (current_alive_crew == 0)
 		{
 			leave = true;
-			NewDay();
+			newDay();
 		}
 
 		std::cout << std::endl;
@@ -345,7 +345,7 @@ void Game::LandedMoon()
 					}
 					else
 					{
-						current_orbit_moon->SellCargo(*this, std::stoi(args.at(0)));
+						current_orbit_moon->sellCargo(*this, std::stoi(args.at(0)));
 					}
 				}
 				catch (const std::invalid_argument e)
@@ -366,11 +366,11 @@ void Game::LandedMoon()
 	}
 	std::cout << std::endl;
 
-	NewDay();
+	newDay();
 }
 
 //defines the items and adds them to the hashmap
-void Game::DefineItems()
+void Game::defineItems()
 {
 	//creates the flashlight object and then calls itemManager
 	Flashlight* flashlight = new Flashlight();
@@ -378,7 +378,7 @@ void Game::DefineItems()
 }
 
 //defines the moon and adds them to the hashmap
-void Game::DefineMoons()
+void Game::defineMoons()
 {
 	Corporation* corporation = new Corporation();
 	moon_manager.RegisterMoon(corporation);
@@ -387,14 +387,14 @@ void Game::DefineMoons()
 	moon_manager.RegisterMoon(prototyping);
 }
 
-float Game::ApplyItemManagerMulti(float parameter_chance, std::string parameter_name)
+float Game::applyItemManagerMulti(float parameter_chance, std::string parameter_name)
 {
 	return item_manager.ApplyMulti(parameter_chance, parameter_name);
 }
 
 //used for generating a number that AbstractMoon can use
 //default values for calling to get typical percentage chance
-float Game::GenerateNum(float min, float max)
+float Game::generateNum(float min, float max)
 {
 	//instance of random num generator is instantiated
 	std::mt19937 num_generator(std::random_device{}());
@@ -403,22 +403,22 @@ float Game::GenerateNum(float min, float max)
 	return dist(num_generator);
 }
 
-void Game::DecreaseAliveCrew()
+void Game::decreaseAliveCrew()
 {
 	current_alive_crew--;
 }
 
-int Game::CurrentAliveCrew()
+int Game::currentAliveCrew()
 {
 	return current_alive_crew;
 }
 
-void Game::IncreaseCargoValue(int scrap)
+void Game::increaseCargoValue(int scrap)
 {
 	current_cargo_value = current_cargo_value + scrap;
 }
 
-void Game::IncreaseBalance(int value)
+void Game::increaseBalance(int value)
 {
 	std::cout << "Your service is invaluable to the corporation." << std::endl;
 	balance = balance + value;
@@ -433,7 +433,7 @@ void Game::decreaseBalance(int value)
 	std::cout << "New balance: $" << balance << std::endl;
 }
 
-void Game::AllEmployeesDead()
+void Game::allEmployeesDead()
 {
 	current_cargo_value = 0;
 	std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
@@ -443,7 +443,7 @@ void Game::AllEmployeesDead()
 }
 
 //ends the game
-void Game::EndGame()
+void Game::endGame()
 {
 	//for loop here to delete the items and moons
 	item_manager.DeleteItems();
