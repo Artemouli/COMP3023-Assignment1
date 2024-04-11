@@ -94,6 +94,18 @@ void Game::newDay()
 	current_alive_crew = 4;
 	current_day -= 1;
 	
+	if (current_day < 0)
+	{
+		if (balance >= quota)
+		{
+			quota = static_cast<int>(quota * 1.5);
+			std::cout << "-------------------------------------" << std::endl;
+			std::cout << "CONGRATULATIONS ON MAKING QUOTA!" << std::endl;
+			std::cout << "New quota: $" << quota << std::endl;
+			std::cout << "-------------------------------------" << std::endl;
+			current_day = 3;
+		}
+	}
 	//sets the moons weathers
 	moon_manager.newDay(*this);
 
@@ -102,7 +114,7 @@ void Game::newDay()
 	std::cout << "Current balance: $" << balance << std::endl;
 	std::cout << "Current quota: $" << quota << " (" << current_day << " days left to meet quota)" << std::endl;
 	std::cout << "Currently orbiting: " << current_orbit_moon->getName() << std::endl;
-	
+
 	//space
 	std::cout << std::endl;
 	std::cout << ">MOONS" << std::endl;
@@ -269,6 +281,12 @@ void Game::landedMoon()
 	std::cout << "Current balance: $" << balance << std::endl;
 	std::cout << "Current quota: $" << quota << " (" << current_day << " days left to meet quota)" << std::endl;
 	std::cout << "Number of employees: " << current_alive_crew << std::endl;
+
+	//if not clear
+	if (current_orbit_moon->getWeatherCondition() != "")
+	{
+		std::cout << "Proceed with caution as the moon is currently " << current_orbit_moon->getWeatherCondition() << std::endl;
+	}
 	
 	//tutorial for corporation moon
 	if (current_orbit_moon->getName() == "Corporation")
