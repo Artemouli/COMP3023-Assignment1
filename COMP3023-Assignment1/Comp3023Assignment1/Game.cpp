@@ -241,6 +241,7 @@ void Game::inOrbit()
 		if (user_input == "store")
 		{
 			item_manager.store();
+			std::cout << "balance: $" << balance << std::endl;
 		}
 		else if (user_input == "buy")
 		{
@@ -250,12 +251,9 @@ void Game::inOrbit()
 			}
 			else
 			{
-				//test
-				//balance = 70;
 				if (balance >= item_manager.getItemPrice(args.at(0)))
 				{
 					item_manager.buy(args.at(0), *this);
-					//std::cout << "Your balance is now $" << balance << std::endl;
 				}
 				else
 				{

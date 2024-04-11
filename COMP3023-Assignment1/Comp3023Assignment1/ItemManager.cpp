@@ -9,6 +9,10 @@
 
 void ItemManager::store()
 {
+	std::cout << "Welcome to the Corporation store." << std::endl;
+	std::cout << "Use the word BUY on any item." << std::endl;
+	std::cout << "---------------------------------------" << std::endl;
+	std::cout << std::endl;
 	for (const auto& pair : items)
 	{
 		std::cout << "* ";
@@ -23,6 +27,7 @@ void ItemManager::store()
 			std::cout << "Price: $" << pair.second->getPrice() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 }
 
 void ItemManager::inventory()
