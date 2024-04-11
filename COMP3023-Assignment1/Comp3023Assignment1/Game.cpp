@@ -71,7 +71,7 @@ void Game::InitaliseNewGame()
 	
 	current_orbit_moon = moon_manager.GetMoon("Prototyping");
 
-	current_orbit_moon->SendEmployees(*this, 3);
+	current_orbit_moon->sendEmployees(*this, 3);
 
 	std::cout << "money " << current_cargo_value << std::endl;
 
@@ -154,12 +154,45 @@ void Game::InOrbit()
 				//if not and is not a nullptr
 				else if (moon_manager.GetMoon(args.at(0)) != nullptr)
 				{
+					//checks if the moons price is 0
 					if (moon_manager.GetMoon(args.at(0))->GetPrice() == 0)
 					{
 						current_orbit_moon = moon_manager.GetMoon(args.at(0));
 						std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
 					}
-					
+					else
+					{
+						std::cout << "The cost of going to " << moon_manager.GetMoon(args.at(0))->GetName() << " is  $" << moon_manager.GetMoon(args.at(0))->GetPrice() << std::endl;
+						std::cout << "You have $" << balance << ". Confirm destination? [Yes/No]" << std::endl;
+						std::string confirmation;
+						std::cout << "> ";
+						std::getline(std::cin, confirmation);
+						util::lower(confirmation);
+
+						if (confirmation == "no")
+						{
+							std::cout << "Trip cancelled." << std::endl;
+							std::cout << "Still orbiting " << current_orbit_moon->GetName() << "." << std::endl;
+						}
+						else if (confirmation == "yes")
+						{
+							if (moon_manager.GetMoon(args.at(0))->GetPrice() > balance)
+							{
+								std::cout << "You don't have enough funds to route to this moon." << std::endl;
+							}
+							else
+							{
+								moon_manager.GetMoon(args.at(0))->onNavigate(*this);
+								current_orbit_moon = moon_manager.GetMoon(args.at(0));
+								std::cout << "Now orbiting " << current_orbit_moon->GetName() << ". Use the LAND command to land." << std::endl;
+							}
+						}
+						else
+						{
+							std::cout << "Bad command; the syntax is : " << "\"yes\"" << " or " << "\"no\"" << std::endl;
+						}
+
+					}
 				}
 				//if is a nullptr
 				else
@@ -172,7 +205,7 @@ void Game::InOrbit()
 
 	}
 	//handle store input
-	else if (user_input == "store" || user_input == "buy" || user_input == "sell")
+	else if (user_input == "store" || user_input == "buy")
 	{
 		if (user_input == "store")
 		{
@@ -196,10 +229,6 @@ void Game::InOrbit()
 					std::cout << "You don't have enough funds to buy this item." << std::endl;
 				}
 			}
-		}
-		else if (user_input == "sell")
-		{
-
 		}
 		InOrbit();
 	}
@@ -286,7 +315,7 @@ void Game::LandedMoon()
 					}
 					else
 					{
-						current_orbit_moon->SendEmployees(*this, std::stoi(args.at(0)));
+						current_orbit_moon->sendEmployees(*this, std::stoi(args.at(0)));
 					}
 				}
 				catch (const std::invalid_argument e)
@@ -354,7 +383,7 @@ void Game::DefineMoons()
 	Corporation* corporation = new Corporation();
 	moon_manager.RegisterMoon(corporation);
 	Prototyping* prototyping = new Prototyping();
-	prototyping->OnDayBegins(*this);
+	prototyping->onDayBegins(*this);
 	moon_manager.RegisterMoon(prototyping);
 }
 
@@ -396,6 +425,12 @@ void Game::IncreaseBalance(int value)
 	std::cout << "New balance: $" << balance << " (quota is $" << quota << ")" << std::endl;
 	current_cargo_value = current_cargo_value - value;
 	std::cout << "New cargo value: $" << current_cargo_value << std::endl;
+}
+
+void Game::decreaseBalance(int value)
+{
+	balance = balance - value;
+	std::cout << "New balance: $" << balance << std::endl;
 }
 
 void Game::AllEmployeesDead()

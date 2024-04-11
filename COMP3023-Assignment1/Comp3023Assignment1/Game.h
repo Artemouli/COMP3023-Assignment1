@@ -53,6 +53,9 @@ public:
 	//used to increase balance and print the text
 	void IncreaseBalance(int value);
 
+	//used to decrease balance
+	void decreaseBalance(int value);
+
 	//used when all of the employees have died
 	void AllEmployeesDead();
 

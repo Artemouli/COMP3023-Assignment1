@@ -11,12 +11,12 @@ Corporation::Corporation(std::string new_name, float new_survival_chance, int mi
 }
 
 //ensures that corporation is always clear
-void Corporation::OnDayBegins(Game& game)
+void Corporation::onDayBegins(Game& game)
 {
 	auto weather_condition = WeatherCondition::Clear;
 }
 
-void Corporation::SendEmployees(Game& game, int employee_count)
+void Corporation::sendEmployees(Game& game, int employee_count)
 {
 	std::cout << "This command is not available on this moon." << std::endl;
 }

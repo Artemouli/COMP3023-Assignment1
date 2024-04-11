@@ -28,13 +28,6 @@ public:
 		return moon_name;
 	}
 
-	//this is for moons that have a cost
-	//checks if the user is sure to route to a moon with a price
-	virtual void OnNavigate(Game& game)
-	{
-		std::cout << "" << std::endl;
-	};
-
 	//returns the current weather condition as a string for printing
 	virtual std::string GetWeatherCondition() const 
 	{
@@ -58,7 +51,7 @@ public:
 	//this only works on explorable moons
 	//employee count must be over 1 and under the amount of alive employees
 	//calculations for survival are done here
-	virtual void SendEmployees(Game& game, int employee_count);
+	virtual void sendEmployees(Game& game, int employee_count);
 
 	//this only works on corporation moon
 	//this method is overridden by the corporation moon
@@ -67,7 +60,9 @@ public:
 		std::cout << "This command is not available on this moon." << std::endl;
 	};
 	
-	virtual void OnDayBegins(Game& game);
+	virtual void onDayBegins(Game& game);
+
+	virtual void onNavigate(Game& game);
 
 	//intended to be overridden by moons which do have a price
 	virtual int GetPrice()

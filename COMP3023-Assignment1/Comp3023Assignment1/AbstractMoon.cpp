@@ -4,13 +4,18 @@
 #include <iostream>
 
 
-void AbstractMoon::OnDayBegins(Game& game)
+void AbstractMoon::onDayBegins(Game& game)
 {
 	//generateNum will only be able to generate a number between 0 and the maximum value (which is count)
 	auto weather_conditon = static_cast<WeatherCondition>(game.GenerateNum(0, static_cast<int>(WeatherCondition::Count)));
 }
 
-void AbstractMoon::SendEmployees(Game& game, int employee_count)
+void AbstractMoon::onNavigate(Game& game)
+{
+	game.decreaseBalance(travel_cost);
+}
+
+void AbstractMoon::sendEmployees(Game& game, int employee_count)
 {
 	if (employee_count > 0)
 	{
