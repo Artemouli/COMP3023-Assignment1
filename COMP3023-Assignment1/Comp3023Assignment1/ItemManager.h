@@ -6,6 +6,8 @@
 #include "AbstractItem.h"
 #include "util.h"
 
+class Game;
+
 #ifndef ITEMMANAGER
 #define ITEMMANAGER
 
@@ -22,7 +24,7 @@ public:
 	int getItemPrice(std::string item_name);
 
 	//handles setting the bought and setting the multipliers
-	void buy(std::string buy_item_name);
+	void buy(std::string buy_item_name, Game& game);
 
 	//is called by the end game function to free up memory
 	void deleteItems();

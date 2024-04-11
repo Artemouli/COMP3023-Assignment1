@@ -5,6 +5,7 @@
 
 #include "ItemManager.h"
 #include "util.h"
+#include "Game.h"
 
 void ItemManager::store()
 {
@@ -70,7 +71,7 @@ int ItemManager::getItemPrice(std::string item_name)
 	}
 }
 
-void ItemManager::buy(std::string buy_item_name)
+void ItemManager::buy(std::string buy_item_name, Game& game)
 {
 	//prevents crashing
 	if (items.count(buy_item_name) > 0)
@@ -82,6 +83,7 @@ void ItemManager::buy(std::string buy_item_name)
 		else
 		{
 			items.at(buy_item_name)->isBought();
+			game.decreaseBalance(items.at(buy_item_name)->getPrice());
 			std::cout << "Successfully bought " << items.at(buy_item_name)->getName() << "." << std::endl;
 		}
 	}

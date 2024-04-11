@@ -250,10 +250,12 @@ void Game::inOrbit()
 			}
 			else
 			{
+				//test
+				//balance = 70;
 				if (balance >= item_manager.getItemPrice(args.at(0)))
 				{
-					item_manager.buy(args.at(0));
-					std::cout << "Your balance is now $" << balance << std::endl;
+					item_manager.buy(args.at(0), *this);
+					//std::cout << "Your balance is now $" << balance << std::endl;
 				}
 				else
 				{
@@ -481,7 +483,7 @@ void Game::increaseBalance(int value)
 void Game::decreaseBalance(int value)
 {
 	balance = balance - value;
-	std::cout << "New balance: $" << balance << std::endl;
+	std::cout << "Your balance is now $" << balance << std::endl;
 }
 
 void Game::allEmployeesDead()
