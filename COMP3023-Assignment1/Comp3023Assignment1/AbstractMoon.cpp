@@ -7,7 +7,8 @@
 void AbstractMoon::onDayBegins(Game& game)
 {
 	//generateNum will only be able to generate a number between 0 and the maximum value (which is count)
-	auto weather_conditon = static_cast<WeatherCondition>(game.generateNum(0, static_cast<int>(WeatherCondition::Count)));
+	WeatherCondition temp_weather = static_cast<WeatherCondition>(game.generateNum(0, static_cast<int>(WeatherCondition::Count)));
+	weather_condition = temp_weather;
 }
 
 void AbstractMoon::onNavigate(Game& game)
