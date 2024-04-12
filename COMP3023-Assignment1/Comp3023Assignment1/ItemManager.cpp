@@ -38,13 +38,13 @@ void ItemManager::inventory()
 	std::cout << "The following items are available." << std::endl;
 	std::cout << "---------------------------------------" << std::endl;
 	std::cout << std::endl;
-	for (const auto& pair : items)
+	for (int i = 0; i < insert_order.size(); i++)
 	{
-		if (pair.second->getBought() == true)
+		if (items.at(insert_order.at(i))->getBought() == true)
 		{
 			itemBought = true;
 			std::cout << "* ";
-			std::cout << pair.second->getName();
+			std::cout << items.at(insert_order.at(i))->getName() << std::endl;
 		}
 	}
 	//if no items have been bought
