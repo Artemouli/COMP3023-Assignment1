@@ -98,8 +98,6 @@ void Game::initaliseNewGame()
 
 void Game::newDay()
 {
-	
-	total_days += 1;
 	current_alive_crew = 4;
 	current_day -= 1;
 	
@@ -127,6 +125,9 @@ void Game::newDay()
 			endGame();
 		}
 	}
+
+	total_days += 1;
+
 	//sets the moons weathers
 	moon_manager.newDay(*this);
 
