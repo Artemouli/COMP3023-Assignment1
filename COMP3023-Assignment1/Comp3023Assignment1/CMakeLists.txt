@@ -12,7 +12,7 @@ endif()
 project ("Comp3023Assignment1")
 
 # Add source to this project's executable.
-add_executable (Comp3023Assignment1 "Comp3023Assignment1.cpp" "Comp3023Assignment1.h" "Game.cpp" "Game.h" "ItemManager.cpp" "ItemManager.h" "AbstractItem.cpp" "AbstractItem.h" "Flashlight.cpp" "Flashlight.h" "AbstractMoon.h" "AbstractMoon.cpp" "MoonManager.h" "MoonManager.cpp" "Prototyping.h" "Prototyping.cpp" "Corporation.cpp" "Corporation.h" "util.h" "util.cpp" "Insurance.cpp" "Insurance.h" "Pledge.cpp" "Pledge.h" "Defence.cpp" "Defence.h" "Shovel.h" "Shovel.cpp" "ProFlashlight.h" "ProFlashlight.cpp" "Teleporter.cpp" "Teleporter.h" "InverseTeleporter.cpp" "InverseTeleporter.h" "Backpack.cpp" "Backpack.h" "HydraulicsMK2.cpp" "HydraulicsMK2.h") 
+add_executable (Comp3023Assignment1 "Comp3023Assignment1.cpp" "Comp3023Assignment1.h" "Game.cpp" "Game.h" "ItemManager.cpp" "ItemManager.h" "AbstractItem.cpp" "AbstractItem.h" "Flashlight.cpp" "Flashlight.h" "AbstractMoon.h" "AbstractMoon.cpp" "MoonManager.h" "MoonManager.cpp" "Prototyping.h" "Prototyping.cpp" "Corporation.cpp" "Corporation.h" "util.h" "util.cpp" "Insurance.cpp" "Insurance.h" "Pledge.cpp" "Pledge.h" "Defence.cpp" "Defence.h" "Shovel.h" "Shovel.cpp" "ProFlashlight.h" "ProFlashlight.cpp" "Teleporter.cpp" "Teleporter.h" "InverseTeleporter.cpp" "InverseTeleporter.h" "Backpack.cpp" "Backpack.h" "HydraulicsMK2.cpp" "HydraulicsMK2.h" "April.cpp" "April.h" "Tore.cpp" "Tore.h" "Hyperion.cpp" "Hyperion.h") 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Comp3023Assignment1 PROPERTY CXX_STANDARD 20)

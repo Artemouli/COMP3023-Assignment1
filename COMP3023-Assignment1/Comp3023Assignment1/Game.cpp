@@ -19,6 +19,9 @@
 #include "Insurance.h"
 #include "Pledge.h"
 #include "Defence.h"
+#include "April.h"
+#include "Tore.h"
+#include "Hyperion.h"
 
 #include "util.h"
 #include "AbstractMoon.h"
@@ -460,6 +463,14 @@ void Game::defineMoons()
 	Defence* defence = new Defence();
 	moon_manager.registerMoon(defence);
 
+	April* april = new April();
+	moon_manager.registerMoon(april);
+
+	Tore* tore = new Tore();
+	moon_manager.registerMoon(tore);
+
+	Hyperion* hyperion = new Hyperion();
+	moon_manager.registerMoon(hyperion);
 }
 
 float Game::applyItemManagerMulti(float parameter_chance, std::string parameter_name)
